@@ -1,0 +1,824 @@
+\documentclass{article}
+\usepackage{geometry,amsmath,graphicx,multicol,longtable,caption}
+\geometry{letterpaper}
+\captionsetup{width=0.75\textwidth, font=small}
+
+\title{AINews centroid-based classification experiments}
+\author{Joshua Eckroth}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\abstract{A variety of centroid-based classification strategies are evaluated
+on the AINews corpus. Standard and weighted tf-idf strategies are compared.
+Additionally, a whitelist filtered corpus is evaluated across the same standard
+and weighted tf-idf strategies. The results show that relatively poor
+classification performance is achieved across all strategies and
+configurations, and that whitelist filtering performed worse. The reasons that
+the classification strategies perform relatively poorly are not known.}
+
+\section{Corpus}
+
+The corpus contains 2824 articles from 2001--2009. Each article is a member of
+one or more categories (mean: 2.5 categories, max: 5). The Applications
+category has the greatest number of articles (1999), followed by Robots (988).
+The other categories have significantly fewer articles (minimum is
+Representation with 67 articles). See Figure \ref{fig:cats-counts} for
+a bar-chart of the counts for all categories.
+
+\begin{figure}[ht]
+\begin{center}
+\includegraphics[scale=0.6]{../corpus/cats-count.pdf}
+\caption{Counts of articles per category. (TODO: reverse vertical layout)}
+\label{fig:cats-counts}
+\end{center}
+\end{figure}
+
+\section{Centroid-based classification strategies}
+
+\subsection{Standard}
+
+(describe tf-idf technique)
+
+Note that stopwords are removed from the article text before processing, and
+every word is stemmed and converted to lowercase (e.g. \emph{Turing}
+$\rightarrow$ \emph{ture}).
+
+\subsection{Weighted terms}
+
+Lertnattee and Theeramunkong \cite{lertnattee2004effect} have established term
+weights in order to improve upon the standard tf-idf calculation. The basic
+idea is that certain term weights (which will be described below) can tell more
+about the relevance of a term than just tf-idf alone.
+
+There are three kinds of weights:
+
+\begin{itemize}
+
+\item $icsd$ --- inter-class standard deviation. ``A term with a high $icsd$
+distributes differently among classes and should have higher discriminating
+power for classification than the others. This factor promotes a term that
+exists in almost all classes but its frequencies for those classes are quite
+different.'' \cite{lertnattee2004effect}
+
+\item $csd$ --- class-standard deviation. ``Different terms may appear with
+quite different frequencies among documents in the class. This difference can
+be alleviated by the way of this deviation. A term with a high $csd$ will
+appear in most documents in the class with quite different frequencies and
+should not be a good representative term of the class. A low $csd$ of a term
+may be triggered by either of the following two reasons. The occurrences of the
+term are nearly equal for all documents in the class or the term rarely occurs
+in the class.'' \cite{lertnattee2004effect} Note that $csd$ is measured per
+term, per class (category). So each term will have several $csd$ values, one
+for each category.
+
+\item $sd$ --- standard deviation. ``Different terms may appear with quite
+different frequencies among documents in the collection. A term with a high
+$sd$ will appear in most documents in the collection with quite different
+frequencies. A low $sd$ of a term may be caused by either of the following two
+reasons. The occurrences of the term are nearly equal for all documents in the
+collection or the term rarely occurs in the collection.''
+\cite{lertnattee2004effect}
+
+These factors are incorporated when articles are compared with category
+centroids using the similarity calculation. Each term weight of the article
+vector is multiplied by a factor $TDF_{ik}$, defined as
+
+\begin{equation*}
+TDF_{ik} = icsd_i^\alpha \times csd_{ik}^\beta \times sd_i^\gamma,
+\end{equation*}
+
+where $i$ is the term, $k$ is the centroid category, and $\alpha,\beta,\gamma$
+control the contribution of the three term weights.
+
+\end{itemize}
+
+\subsection{Whitelist-filtering}
+
+We attempted greater category separation by comparing articles, and building
+centroids, from a small set of words and phrases. Note that words and phrases
+are stemmed before they are compared (phrases are stemmed by stemming each
+word). The (unstemmed) set is listed below.
+
+\begin{multicols}{3}
+aaai
+
+abduction
+
+adaptive control
+
+adaptive system
+
+afghanistan
+
+agent
+
+agriculture
+
+ai
+
+ambiguous
+
+animal
+
+approachable
+
+artificial brain
+
+artificial intelligence
+
+artificial life
+
+artificial thinking
+
+authentication
+
+automatic
+
+automatic translator
+
+automobile
+
+autonomous
+
+autonomous vehicle
+
+avatar
+
+bayes
+
+bayesian
+
+biometric
+
+brain
+
+brain science
+
+brooks
+
+bush
+
+business
+
+camera
+
+campus
+
+car
+
+carnegie mellon university
+
+cash register
+
+causal reasoning
+
+character recognition
+
+chess playing
+
+cmu
+
+cognition
+
+cognitive psychology
+
+cognitive sciences
+
+commercial
+
+computer art
+
+computer chess
+
+computer decide
+
+computer games
+
+computer music
+
+computer science
+
+computer vision
+
+control
+
+cooperating agents
+
+credit card
+
+cryptic
+
+cybersecurity
+
+cyberspace
+
+darpa
+
+data mining
+
+decision
+
+deduction
+
+diagnosis
+
+digital
+
+digital assistant
+
+dna
+
+doctor
+
+driver
+
+drone
+
+economy
+
+education
+
+emotion
+
+empathy
+
+engineering
+
+experiences
+
+expert
+
+expert system
+
+face recognition
+
+fallible human
+
+feigenbaum
+
+financial
+
+fingerprint
+
+forecast
+
+fraud
+
+fuzzy logic
+
+government
+
+grand challenge
+
+greet
+
+hacker
+
+hearing
+
+history
+
+hospital
+
+humanoid
+
+identity
+
+image analysis
+
+image recognition
+
+image understanding
+
+induction
+
+informatics
+
+instant message
+
+intelligent agent
+
+intelligent computers
+
+intelligent machines
+
+intelligent software
+
+interaction
+
+internet
+
+iraq
+
+isp
+
+john mccarthy
+
+judge
+
+kubrick
+
+kurzweil
+
+laboratory
+
+language processing
+
+language understanding
+
+logic 
+
+machine learning
+
+machine think
+
+machine translation
+
+machine vision
+
+machines take over
+
+malicious
+
+marvin minsky
+
+mathematics
+
+medical
+
+medicine
+
+memories
+
+memory
+
+merchant
+
+microsoft
+
+mit
+
+mockup
+
+modelling
+
+nanosensors
+
+nanotech
+
+nasa
+
+nature of intelligence
+
+network
+
+neural
+
+neural networks
+
+obama
+
+onboard computer
+
+opponents
+
+pattern analysis
+
+pattern recognition
+
+payment
+
+payments
+
+pedestrian
+
+philosophy
+
+plan the route
+
+planning
+
+poker bot
+
+poker program
+
+predict
+
+president
+
+probability
+
+prototype
+
+qaeda
+
+radio
+
+ramona
+
+real time information
+
+reasoning
+
+recognizing faces
+
+recommendation engine
+
+recommendation system
+
+reconnaissance
+
+representation
+
+research
+
+retail
+
+reverse engineer
+
+robosoldier
+
+robot
+
+russia
+
+school
+
+science
+
+semantic
+
+semantic analysis
+
+semantic search
+
+semantic web
+
+semi autonomous systems
+
+semi autonomous vehicles
+
+sensor
+
+share information
+
+signature
+
+simulate human thinking
+
+simulation
+
+singularity
+
+smart car
+
+smart computer
+
+smart house
+
+smart machines
+
+smart phone
+
+social
+
+social impact
+
+soldier
+
+sophisticated sensors
+
+speech recognition
+
+speech synthesis
+
+stanford
+
+stanley
+
+statistics
+
+synthesis
+
+think
+
+thrun
+
+traffic
+
+translation software
+
+translation system
+
+travel
+
+trojan
+
+turing
+
+turing test
+
+uav
+
+understand speech
+
+understanding language
+
+understanding speech
+
+unmanned vehicle
+
+vehicle
+
+virtual
+
+virus
+
+visualize
+
+voice
+
+voice recognition
+
+voiceprint
+
+weather
+
+weather forecast
+
+wheel
+
+wireless
+
+words
+
+worm
+\end{multicols}
+
+Article dissimilarities, as measured by the standard tf-idf cosine similarity
+measure, are shown in Figures \ref{fig:mds-nowhite} and \ref{fig:mds-white}.
+The first figure shows dissimilarities of articles without whitelist words
+selected (that is, all non-stopwords are represented in the article vectors),
+while the second figure shows article dissimilarities after filtering whitelist
+words.
+
+\begin{figure}
+\begin{center}
+\includegraphics[scale=0.35]{../corpus/corpus-mds-all-nowhite.png}
+\caption{Article dissimilarity for all articles in the corpus, compared to each
+other after whitelist filtering. Each point represents an article; each article
+is compared to every other with the standard cosine similarity metric. This
+computed similarity (which is between 0.0 and 1.0) is subtracted from 1.0 to
+obtain an article dissimilarity measure. The article pair-wise dissimilarities
+are then plotted in 2D using multi-dimensional scaling.}
+
+\label{fig:mds-nowhite}
+\end{center}
+\end{figure}
+
+\begin{figure}
+\begin{center}
+\includegraphics[scale=0.35]{../corpus/corpus-mds-all-white.png}
+\caption{This is the same style of plot as Figure \ref{fig:mds-nowhite}, but
+here the articles are compared after whitelist filtering.}
+
+\label{fig:mds-white}
+\end{center}
+\end{figure}
+
+\section{Experimental methodology}
+
+Five variations each of $icsd_i^{\alpha}$, $csd_{ik}^{\beta}$, and
+$sd_i^{\gamma}$ were evaluated, with $- 1.0 \leq \alpha, \beta, \gamma \leq
+1.0$ in increments of $0.5$; this resulted in 125 variations of the term
+$TDF_{ik}=icsd_i^\alpha \times csd_{ik}^\beta \times sd_i^\gamma$. Each
+variation was tested four times on a random training and testing subset of the
+corpus. The training subsets ranged from 10\% to 90\% (10\% increments) of the
+corpus, and the testing subset was always 10\% of the corpus. It was ensured
+that the testing subset did not share any articles with the training subset.
+
+Accuracy of the categorization was measured in the following way. For each
+article from the testing subset, a single category was chosen by finding the
+maximum similarity of that article with the category centroids (generated from
+the training subset of the corpus). $icsd,csd,sd$ factors may or may not have
+been included in the similarity measure, depending on the values of
+$\alpha,\beta,\gamma$. The article is considered correctly categorized if the
+chosen category is one of the true categories of the article (recall that
+articles in the corpus are typically members of 2-3 categories). Because only
+one category is chosen but the article may actually belong to more than one
+category, the accuracy measure may be somewhat inflated. One would expect it to
+be easier to pick one of several true categories than to pick a single true
+category. However, there is no efficient and precise way to modify the corpus
+so that each article has only one true category.
+
+\section{Results}
+
+\begin{table}[ht]
+  \begin{center}
+  \begin{tabular}{lllllll}
+    \textbf{Trained} & \textbf{icsd} & \textbf{csd} & \textbf{sd} &
+    \textbf{no whitelist} & \textbf{whitelist}\\
+
+    50\% & 0.0 & 0.0 & 0.0 & 80.32\% & 59.97\%\\
+    50 & -0.5 & 0.0 & 0.5 & 82.77 & 57.85\\
+    50 & -0.5 & 0.0 & 1.0 & 80.57 & 62.42\\
+    &  &  &  &  & \\
+    70 & 0.0 & 0.0 & 0.0 & 79.05 & 61.15\\
+    70 & -0.5 & 0.0 & 0.5 & {\textbf{83.36}} & 59.29\\
+    70 & -0.5 & 0.0 & 1.0 & 81.00 & {\textbf{63.77}}\\
+    &  &  &  &  & \\
+    90 & 0.0 & 0.0 & 0.0 & 79.65 & 60.81\\
+    90 & -0.5 & 0.0 & 0.5 & 82.52 & 59.88\\
+    90 & -0.5 & 0.0 & 1.0 & 81.17 & 63.09
+  \end{tabular}
+  \end{center}
+
+  \caption{Accuracy measures for no whitelist and whitelist experiments. Only
+the top scoring parameters are shown. The $\alpha,\beta,\gamma$ weights are
+indicated in the $icsd,csd,sd$ columns. The two rightmost columns are accuracy
+scores for each of the two experiments. The bold accuracy scores are the
+maximum for each experiment (whitelist or no whitelist), across all
+parameters.}
+
+  \label{table:accuracy}
+\end{table}
+
+\subsection{icsd, csd, sd factors}
+
+The $icsd$ and $sd$ term weights attempt to measure, respectively, how strongly
+a word separates categories and the range of frequencies of a word across all
+articles. Here we show a small selection of words with high $icsd$ and/or $sd$
+weights.
+
+First are words from the `no whitelist' training set, in which all
+non-stopwords in each article were candidates.
+
+\begin{center}
+  \begin{tabular}{lll}
+    {\textbf{Word}} & {\textbf{icsd}} & {\textbf{sd}}\\
+    robot & 2.70 & 9.17\\
+    game & 1.97 & 5.38\\
+    web & 1.47 & 2.55\\
+    student & 1.12 & 2.24\\
+    comput & 1.11 & 4.79\\
+  \end{tabular}
+\end{center}
+
+Next are the highly-weighted words from the whitelist-filtered training set, in
+which only a small selection of words were candidates.
+
+\begin{center}
+  \begin{tabular}{lll}
+    {\textbf{Word}} & {\textbf{icsd}} & {\textbf{sd}}\\
+    robot & 2.68 & 9.28\\
+    brain & 0.93 & 2.36\\
+    research & 0.51 & 3.29\\
+    scienc & 0.63 & 2.73
+  \end{tabular}
+\end{center}
+
+\subsubsection{csd distribution}
+
+We saw in Table \ref{table:accuracy} that the $csd$ term weight did not
+contribute to high accuracy (the $csd$ weight $\beta$ was equal to 0.0 for
+every highly-accurate result). Nevertheless, we should look at which terms, in
+each category, have a high $csd$ weight. Recall that a high $csd$ weight
+indicates that the term appears in articles in the category with highly
+variable frequencies, so the word's frequency in an article is not a strong
+representative of the category.
+
+  \begin{center}
+  \begin{longtable}{lllll}
+
+    & \multicolumn{2}{c}{\textbf{No whitelist}} &
+      \multicolumn{2}{c}{\textbf{Whitelist}} \\
+    \textbf{Category} & {\textbf{word}} & {\textbf{csd}} &
+    \textbf{word} & \textbf{csd}\\
+    \endhead
+    \caption{$csd$ weights per term and category, separated by the `no
+whitelist' and `whitelist' experiments. A high $csd$ weight indicates the word
+appears in a category's articles with highly-variable frequencies.}
+    \endlastfoot
+    \label{table:csd}\\
+    AIOverview & comput & 7.59 & robot & 6.13\\
+    & robot & 6.14 & ture & 5.59\\
+    &  &  &  & \\
+    Agents & agent & 7.71 & agent & 7.70\\
+    & robot & 7.49 & robot & 7.60\\
+    &  &  &  & \\
+    Applications & robot & 8.88 & robot & 9.08\\
+    & game & 5.52 & research & 3.38\\
+    &  &  &  & \\
+    CognitiveScience & robot & 7.19 & robot & 7.78\\
+    & comput & 5.94 & brain & 5.73\\
+    &  &  &  & \\
+    Education & game & 10.83 & robot & 5.50\\
+    & test & 6.60 & educ & 3.90\\
+    &  &  &  & \\
+    Ethics & robot & 10.56 & robot & 10.48\\
+    & data & 4.78 & research & 3.30\\
+    &  &  &  & \\
+    Games & games & 12.42 & robot & 8.29\\
+    & robot & 7.85 & ai & 2.81\\
+    &  &  &  & \\
+    &  &  &  & \\
+    History & robot & 9.02 & robot & 9.04\\
+    & game & 7.96 & ture & 6.20\\
+    &  &  &  & \\
+    Interfaces & robot & 11.81 & robot & 12.04\\
+    & comput & 4.77 & research & 3.90\\
+    &  &  &  & \\
+    MachineLearning & data & 5.99 & robot & 4.33\\
+    & search & 4.40 & research & 3.69\\
+    &  &  &  & \\
+    NaturalLanguage & game & 7.12 & robot & 4.43\\
+    & search & 6.73 & research & 3.46 \\
+    &  &  &  & \\
+    Philosophy & conscious & 9.82 & brain & 5.12\\
+    & brain & 5.81 & robot & 4.14\\
+    &  &  &  & \\
+    Reasoning & machin & 6.61 & robot & 4.58\\
+    & problem & 5.78 & plan & 3.38\\
+    &  &  &  & \\
+    Representation & web & 9.58 & semant & 4.43\\
+    & servic & 5.51 & voice & 4.06\\
+    &  &  &  & \\
+    Robots & robot & 10.67 & robot & 10.90\\
+    & human & 3.70 & research & 3.13\\
+    &  &  &  & \\
+    ScienceFiction & robot & 13.18 & robot & 13.06\\
+    & human & 5.35 & science & 4.20\\
+    &  &  &  & \\
+    Speech & search & 4.76 & voic & 4.21\\
+    & comput & 4.75 & robot & 3.91\\
+    &  &  &  & \\
+    Systems & ture & 7.93 & ture & 7.93\\
+    & comput & 6.58 & robot & 5.08\\
+    &  &  &  & \\
+    Vision & robot & 7.60 & robot & 7.75\\
+    & imag & 5.34 & camera & 4.37\\
+    & & & &
+
+  \end{longtable}
+\end{center}
+
+
+
+\section{Discussion}
+
+All considered, the accuracy scores (Table \ref{table:accuracy}) are quite low.
+Since our definition of `accurate' is `predicted category is one of the true
+categories' and an article has on average 2 or 3 categories, one would expect
+a reasonable categorizer to have an accuracy score consistently near 100\%.
+
+The $icsd,csd,sd$ weights may give an indication of what is wrong with the
+categorizer. The (stemmed) word `robot' has the highest $icsd$ and $sd$,
+meaning it distributes differently across categories and strongly varies (in
+its frequency in an article) across all articles. However, we see that for
+nearly every category, the $csd$ weight for `robot' is also very high (often
+the highest $csd$ weight in the category), meaning the term also varies
+significantly across the articles of those categories. This makes `robot' not
+very indicative of category membership. Yet, its $icsd$ factor is highest of
+all words (though the $icsd$ weight is not very high), meaning it is (mildly)
+indicative of category membership because its frequency of occurrence in
+articles in a category (somewhat) depends on the category. (Preliminary tests
+in which `robot' was removed from the whitelist showed no improvement in
+accuracy; in fact, accuracy declined by about 8\%.)
+
+Oddly, Lertnattee and Theeramunkong's results \cite{lertnattee2004effect}
+outright contradict our own results. They found maximum accuracy when $icsd$
+contributed positively ($\alpha>0$) and $sd$ contributed negatively
+($\gamma<0$); also, they generally found good results with $csd$ contributing
+negatively ($\beta<0$). However, our experiments show that a negative
+contribution from $icsd$ and a positive contribution from $sd$ produced the
+best results (although the results were still poor).
+
+An explanation of these properties is needed. It may be that, generally, some
+articles have high frequencies of a small set of words, and that category
+membership does not localize these words. For example, it may be that `robot'
+appears in some articles many times, but not at all in other articles.
+Additionally, both sets of articles (high `robot' frequency, low `robot'
+frequency) can be found in nearly all categories. Thus, in this example,
+`robot' is a confusing word. Perhaps removing or downplaying the relevance of
+`confusing' words will provide greater category separation and increased
+prediction accuracy. (Again, though, early results show that removing
+highly-weighted terms, measured by $icsd,csd,sd$ weights, actually reduces
+accuracy).
+
+The dissimilarity plots (Figures \ref{fig:mds-nowhite} and \ref{fig:mds-white})
+may be made more useful if the points (articles) are colored based on category
+membership. We suspect, though, that even with coloring there will be few to no
+obvious clusters of articles.
+
+Conclusions about the usefulness of centroid-based classification are not yet
+warranted. However, the results so far suggest that our particular corpus may
+be better categorized by a radically different technique.
+
+
+\bibliographystyle{acm}
+\bibliography{biblio}
+
+\end{document}
+
