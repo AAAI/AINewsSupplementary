@@ -3,7 +3,6 @@
 use strict;
 use WWW::Mechanize;
 use HTML::TreeBuilder;
-use Data::Dumper;
 use DBI;
 
 my $host = "localhost";
@@ -26,12 +25,109 @@ my @valid_cats = ("AIOverview","Agents", "Applications",
         "Reasoning","Representation", "Robots","ScienceFiction",
         "Speech", "Systems","Vision");
 
+my %cat_parents = (
+    "FuzzyLogic" => "Reasoning",
+    "VideoGamesAndToys" => "Games",
+    "HazardsAndDisasters" => "Applications",
+    "ArchitectureAndDesign" => "Applications",
+    "SmartHouses" => "Applications",
+    "GeneticAlgorithms" => "MachineLearning",
+    "DataMining" => "MachineLearning",
+    "PoliticsAndForeignRelations" => "Applications",
+    "TuringTest" => "AIOverview",
+    "Fraud" => "Applications",
+    "Medicine" => "Applications",
+    "Business" => "Applications",
+    "Marketing" => "Applications",
+    "AIMovie" => "ScienceFiction",
+    "SocialScience" => "Applications",
+    "MachineTranslation" => "NaturalLanguage",
+    "WebSearchingAgents" => "Agents",
+    "ImageUnderstanding" => "Vision",
+    "Telecommunications" => "Applications",
+    "Interviews" => "History",
+    "Chess" => "Games",
+    "Military" => "Applications",
+    "Drama" => "Applications",
+    "Agriculture" => "Applications",
+    "IntelligentTutoringSystems" => "Applications",
+    "AssistiveTechnologies" => "Interfaces",
+    "ExpertSystems" => "Applications",
+    "NaturalLanguageUnderstanding" => "NaturalLanguage",
+    "AutonomousVehicles" => "Robots",
+    "CommonSense" => "Reasoning",
+    "NeuralNetworks" => "MachineLearning",
+    "TransportationAndShipping" => "Applications",
+    "Astronomy" => "Applications",
+    "InformationRetrievalAndExtraction" => "Applications",
+    "Ontologies" => "Representation",
+    "ScientificDiscovery" => "Applications",
+    "Banking" => "Applications",
+    "Art" => "Applications",
+    "Creativity" => "CognitiveScience",
+    "ArtificialLife" => "Agents",
+    "NatureOfIntelligence" => "CognitiveScience",
+    "Uncertainty" => "Reasoning",
+    "MultiAgentSystems" => "Agents",
+    "Checkers" => "Games",
+    "Namesakes" => "History",
+    "LawEnforcement" => "Applications",
+    "Networks" => "Applications",
+    "ReinforcementLearning" => "MachineLearning",
+    "Tributes" => "History",
+    "KnowledgeManagement" => "Applications",
+    "ArtificialNoses" => "Applications",
+    "Emotion" => "CognitiveScience",
+    "Birds" => "Reasoning",
+    "CaseBasedReasoning" => "Reasoning",
+    "SoftwareDevelopment" => "Applications",
+    "PatternRecognition" => "MachineLearning",
+    "Law" => "Applications",
+    "Music" => "Applications",
+    "AIEffect" => "Applications",
+    "Planning" => "Reasoning",
+    "Analogy" => "Reasoning",
+    "EarthAndAtmosphericScience" => "Applications",
+    "Bioinformatics" => "Applications",
+    "Libraries" => "Applications",
+    "ComputerScience" => "AIOverview",
+    "DecisionTrees" => "MachineLearning",
+    "Engineering" => "Applications",
+    "DiscourseAnalysis" => "NaturalLanguage",
+    "Scrabble" => "Games",
+    "Poker" => "Games",
+    "Go" => "Games",
+    "BeliefRevision" => "Reasoning",
+    "Logic" => "Reasoning",
+    "Filtering" => "Applications",
+    "Sports" => "Applications",
+    "RealTimeReasoning" => "Reasoning",
+    "QualitativeReasoning" => "Reasoning",
+    "MoreGames" => "Games",
+    "Search" => "Reasoning",
+    "Languages" => "Representation",
+    "PetroleumIndustry" => "Applications",
+    "Design" => "Applications",
+    "Abduction" => "Reasoning",
+    "AutomaticProgramming" => "Applications",
+    "ConstraintBasedReasoning" => "Reasoning",
+    "TravelingSalesperson" => "Games",
+    "Bridge" => "Games",
+    "Future" => "AIOverview",
+    "Induction" => "MachineLearning",
+    "Othello" => "Games",
+    "GrandChallenges" => "AIOverview",
+    "Nonmonotonicity" => "Reasoning",
+    "Neuroscience" => "CognitiveScience"
+);        
+
 my $mech = WWW::Mechanize->new(autocheck => 0);
 $mech->timeout(10);
 $mech->agent_alias('Windows IE 6');
 
-my @urls = ();
-foreach my $prefix (("B", "C", "D", "E", "F", "G", "H", "I", "J"))
+my @urls = ("http://www.aaai.org/AITopics/html/archvF10.html","http://www.aaai.org/AITopics/html/archvF11.html","http://www.aaai.org/AITopics/html/archvF12.html");
+#foreach my $prefix (("B", "C", "D", "E", "F", "G", "H", "I", "J"))
+foreach my $prefix (("G", "H", "I", "J"))
 {
     for(my $i = 1; $i <= 12; $i++)
     {
@@ -46,6 +142,8 @@ my $wayback_success = 0;
 
 foreach my $url (@urls)
 {
+    print "Trying $url\n\n";
+
     $mech->get($url);
     if(!$mech->success()) { next; }
 
@@ -137,6 +235,7 @@ foreach my $url (@urls)
                             print "(FAILED: ".$mech->status().")\n\n";
 
                             my $wayback_url = "http://wayback.archive.org/web/*/$href";
+                            $wayback_count++;
                             print "Wayback url: $wayback_url\n\n";
                             $mech->get($wayback_url);
                             if(!$mech->success())
@@ -169,7 +268,6 @@ foreach my $url (@urls)
                                 next;
                             }
                             print "Wayback machine worked.\n";
-                            $wayback_count++;
                         }
                         $active_url = $href;
                     }
@@ -179,7 +277,13 @@ foreach my $url (@urls)
                         $cat =~ s/#.*$//;
                         if(grep {/^$cat$/} @valid_cats)
                         {
-                            push(@categories, $cat) unless $cats_seen{$cat}++;
+                            push(@categories, $cat)
+                                unless $cats_seen{$cat}++;
+                        }
+                        elsif(defined($cat_parents{$cat}))
+                        {
+                            push(@categories, $cat_parents{$cat})
+                                unless $cats_seen{$cat_parents{$cat}}++;
                         }
                     }
                 }
