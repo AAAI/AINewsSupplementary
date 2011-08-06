@@ -38,21 +38,26 @@ p {
                             <a style="border-width:0px;" href='http://www.aaai.org/AITopics/xml/rss/news.xml'>
                                 <img style="border-width:0px;" src="http://www.aaai.org/aitopics/pmwiki/pub/images/rss.gif"/>
                             </a>
-                            <br/><br/>
-                        <div style="margin:0px 0px 10px 0px; ">
-                        <img width='14px' height='10px' src='http://www.aaai.org/AITopics/pmwiki/pub/skins/aaaiblue/backgrounds/bulletSpaced.gif'>
-                        <span style='clear:right; font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif; color: #202020;font-size: 13px; line-height: 18px;'>
-                        <b>LATEST HEADLINES - $date</b>
-                        </span>
-                    </div>
-                    <img src='http://www.aaai.org/AITopics/pmwiki/pub/skins/aaaiblue/backgrounds/backgrounds07.gif' width='377px' height='25px'>
-                            
+
+
+<h2 style="padding:30px 20px 10px 0px; background: url(http://www.aaai.org/AITopics/pmwiki/pub/skins/aaaiblue/backgrounds/backgrounds05.gif) no-repeat left bottom; line-height:10px;">
+<span style="padding-left: 16px; background: url(http://www.aaai.org/AITopics/pmwiki/pub/skins/aaaiblue/backgrounds/bullet.gif) no-repeat left center; font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif; font-size: 13px; color: #202020;">LATEST HEADLINES - $date</span>
+</h2>
+
+
                     <ul style='margin-top: 10px;  font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif; font-size: 11px; line-height: 18px; color: #5E5E5E;'>
 
 
 #for $id, $n in zip(range(len($news)), $news)
                         <li><a style='color: #004466;' href='#anchor$id'>$n.title</a>
-                            <span style="font-size:83%">$n.topic</span>
+                            <span style="font-size:83%">[
+#for $cat in $n.categories
+                                $cat 
+#if $cat != $n.categories[-1]
+                                ,
+#end if
+#end for
+                            ]</span>
                         </li>
 #end for
                     </ul>
@@ -63,14 +68,9 @@ p {
                 <td width="639px" valign="top" style=" font-size: 11px; line-height: 18px ">
                 <img width='639px' height='30px' src='http://www.aaai.org/AITopics/pmwiki/pub/skins/aaaiblue/backgrounds/backgrounds16.jpg'>
                             
-                <div>&nbsp;</div>
-                <div style="margin:5px 0px 10px 0px; ">
-                    <img width='14px' height='10px' src='http://www.aaai.org/AITopics/pmwiki/pub/skins/aaaiblue/backgrounds/bulletSpaced.gif'>
-                    <span style='clear:right; font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif; color: #202020;font-size: 13px; line-height: 18px;'>
-                        <b>SUMMARIES</b>
-                    </span>
-                </div>
-                <img src='http://www.aaai.org/AITopics/pmwiki/pub/skins/aaaiblue/backgrounds/backgrounds07.gif' width='377px' height='25px'>
+<h2 style="padding:30px 20px 10px 0px; background: url(http://www.aaai.org/AITopics/pmwiki/pub/skins/aaaiblue/backgrounds/backgrounds05.gif) no-repeat left bottom; line-height:10px;">
+<span style="padding-left: 16px; background: url(http://www.aaai.org/AITopics/pmwiki/pub/skins/aaaiblue/backgrounds/bullet.gif) no-repeat left center; font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif; font-size: 13px; color: #202020;">SUMMARIES</span>
+</h2>
     
                 <ul style="font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;	font-size: 11px; line-height: 18px; color: #5E5E5E;">
 
@@ -80,10 +80,15 @@ p {
 
 <li style='margin-top:15px; margin-bottom: 15px;' >
     #echo ($n.pubdate).strftime("%B %d, %Y")#:&nbsp; <strong><a target='_blank' name = 'anchor$id' style='color: #004466;' href='$n.url' rel='nofollow'>$n.title</a></strong> 
-    &nbsp;$n.desc
+    &nbsp;$n.summary
     <div style='text-align:right; margin:1px 0px 0px 0px'>
         <img src='http://www.aaai.org/AITopics/pmwiki/pub/images/next_arrow1.gif' alt='' title='' /> 
-        <a class='wikilink' style='color: #004466;' href='#echo $aitopic_urls[$topicids[$n.topic]]#'>$n.topic</a>  &nbsp;&nbsp;&nbsp;<a href='#top'>
+#for $cat in $n.categories
+        <a class='wikilink' style='color: #004466;' href='#echo $aitopic_urls[$topicids[$cat]]#'>$cat</a>  &nbsp;&nbsp;&nbsp;<a href='#top'>
+#if $cat != $n.categories[-1]
+                                ,
+#end if
+#end for
             <img  border='0px' style='margin-bottom:-1px' src='http://www.aaai.org/AITopics/pmwiki/pub/images/up_arrow1.gif'
             alt='back to top' title='back to top' />
         </a>
