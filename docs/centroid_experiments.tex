@@ -41,10 +41,6 @@ a bar-chart of the counts for all categories.
 
 (describe tf-idf technique)
 
-Note that stopwords are removed from the article text before processing, and
-every word is stemmed and converted to lowercase (e.g. \emph{Turing}
-$\rightarrow$ \emph{ture}).
-
 \subsection{Weighted terms}
 
 Lertnattee and Theeramunkong \cite{lertnattee2004effect} have established term
@@ -97,34 +93,109 @@ control the contribution of the three term weights.
 \subsection{Whitelist-filtering}
 
 We attempted greater category separation by comparing articles, and building
-centroids, from a small set of words and phrases. Note that words and phrases
-are stemmed before they are compared (phrases are stemmed by stemming each
-word). The (unstemmed) set is listed below.
+centroids, from a small set of words and phrases. Note that non-capitalized
+words and phrases are stemmed before they are compared (phrases are stemmed by
+stemming each non-capitalized word). The (unstemmed) set is listed below.
 
 \begin{multicols}{3}
-aaai
+\footnotesize
+AAAI
+
+AI
+
+AI language
+
+Aibo
+
+Alan Turing
+
+Allen Newell
+
+Asimo
+
+Asimov
+
+Bayes
+
+Blade Runner
+
+CYC
+
+Capek
+
+Chomsky
+
+DARPA
+
+ENIAC
+
+Feigenbaum
+
+Fortran
+
+Frankenstein
+
+HAL
+
+Hearsay II
+
+Hephaestus
+
+Herbert Simon
+
+Isaac Asimov
+
+Jeopardy tv
+
+John McCarthy
+
+Kismet
+
+Lego
+
+Lisp
+
+Marvin Minsky
+
+R.U.R.
+
+Robocup
+
+Rodney Brooks
+
+Rubik's cube
+
+Shakey
+
+Stanley
+
+Turing test
 
 abduction
 
+acoustic
+
 adaptive control
+
+adaptive learning
 
 adaptive system
 
-afghanistan
-
 agent
+
+agent based
 
 agriculture
 
-ai
+analogy
 
-ambiguous
+android
 
-animal
+app
 
-approachable
+arguments against AI
 
-artificial brain
+arima
 
 artificial intelligence
 
@@ -132,159 +203,151 @@ artificial life
 
 artificial thinking
 
-authentication
+assistive technologies
 
-automatic
+automated imaging
+
+automated reasoning
+
+automatic translation
 
 automatic translator
 
-automobile
-
-autonomous
+autonomous software
 
 autonomous vehicle
 
 avatar
 
-bayes
+banking
 
-bayesian
+belief revision
 
-biometric
+blackboard architecture
 
-brain
+blackboard model
 
 brain science
 
-brooks
+brute force
 
-bush
+call center
 
-business
-
-camera
-
-campus
-
-car
-
-carnegie mellon university
-
-cash register
+can computers think
 
 causal reasoning
 
-character recognition
+checkers
 
-chess playing
+civil liberty
 
-cmu
+classroom
 
 cognition
 
+cognitive computing
+
 cognitive psychology
 
-cognitive sciences
+cognitive science
 
-commercial
+common sense
+
+computational agent
+
+computational environment
 
 computer art
 
-computer chess
-
-computer decide
-
-computer games
+computer metaphor
 
 computer music
 
-computer science
-
 computer vision
 
-control
+concepts
+
+consciousness
+
+consequences for humanity
+
+consistency
+
+constraint based
+
+context aware
+
+conversation
+
+conversational 
+
+conversational computer
 
 cooperating agents
 
-credit card
+creativity
 
-cryptic
-
-cybersecurity
-
-cyberspace
-
-darpa
+crossword puzzle
 
 data mining
 
-decision
+decision making
 
-deduction
-
-diagnosis
-
-digital
+decision trees
 
 digital assistant
 
-dna
+digital tutor
 
-doctor
+discourse analysis
 
-driver
+early calculators
 
-drone
-
-economy
+early years
 
 education
 
+educational software
+
 emotion
 
-empathy
-
-engineering
-
-experiences
-
-expert
+episodic memory
 
 expert system
+
+expertise
 
 face recognition
 
 fallible human
 
-feigenbaum
+first computer program
 
-financial
+formal reasoning
 
-fingerprint
+framework
 
-forecast
+fraud detection
 
-fraud
+futuristic
 
 fuzzy logic
 
-government
+game of bridge
 
-grand challenge
+game of go
 
-greet
+game of hex
 
-hacker
-
-hearing
+genetic algorithm
 
 history
 
-hospital
+human memory
+
+human thought
 
 humanoid
-
-identity
 
 image analysis
 
@@ -294,11 +357,13 @@ image understanding
 
 induction
 
+industry
+
 informatics
 
-instant message
-
 intelligent agent
+
+intelligent assistant
 
 intelligent computers
 
@@ -306,121 +371,125 @@ intelligent machines
 
 intelligent software
 
-interaction
+intelligent tutoring
 
-internet
+interactive graphics
 
-iraq
+interactive learning
 
-isp
+joystick
 
-john mccarthy
+knowledge management
 
-judge
+knowledge processing
 
-kubrick
+knowledge representation
 
-kurzweil
+knowledge sharing
 
-laboratory
+knowledge structure
+
+language
 
 language processing
 
 language understanding
 
-logic 
+learning environment
+
+liability
+
+linguistics
+
+list processing
+
+machine consciousness
+
+machine ethics
 
 machine learning
 
-machine think
-
 machine translation
+
+machine translator
 
 machine vision
 
 machines take over
 
-malicious
+manufacturing
 
-marvin minsky
+mental representation
 
-mathematics
+milestone
 
-medical
+military
 
-medicine
+moral challenge
 
-memories
+movie
 
-memory
-
-merchant
-
-microsoft
-
-mit
-
-mockup
-
-modelling
-
-nanosensors
-
-nanotech
-
-nasa
+multi agent
 
 nature of intelligence
 
-network
-
-neural
+neural basis
 
 neural networks
 
-obama
+neuroscience
+
+non numerical
+
+object oriented
 
 onboard computer
 
-opponents
+ontological commitment
+
+ontology
+
+operating system
+
+othello
 
 pattern analysis
 
 pattern recognition
 
-payment
+perception
 
-payments
-
-pedestrian
-
-philosophy
+philosophical foundations
 
 plan the route
 
 planning
 
+poker
+
 poker bot
 
 poker program
 
-predict
+privacy
 
-president
+probabilistic
 
-probability
+problem solving
 
-prototype
+process of thought
 
-qaeda
+prolog
 
-radio
+puzzles
 
-ramona
+qualitative reasoning
+
+question answering
 
 real time information
 
-reasoning
+real time reasoning
 
 recognizing faces
 
@@ -428,29 +497,49 @@ recommendation engine
 
 recommendation system
 
-reconnaissance
+recommender system
 
-representation
+reinforcement
 
-research
-
-retail
-
-reverse engineer
-
-robosoldier
+roboethics
 
 robot
 
-russia
+robot teacher
 
-school
+robotic
 
-science
+robotics laboratory
 
-semantic
+rover
+
+rule based system
+
+run amok
+
+scene recognition
+
+scheduling
+
+schools
+
+sci fi
+
+science fiction
+
+scientific discovery
+
+scrabble
+
+search
+
+searching agent
+
+self assembling
 
 semantic analysis
+
+semantic net
 
 semantic search
 
@@ -460,17 +549,13 @@ semi autonomous systems
 
 semi autonomous vehicles
 
-sensor
-
 share information
-
-signature
 
 simulate human thinking
 
-simulation
-
 singularity
+
+smart artifacts
 
 smart car
 
@@ -480,47 +565,63 @@ smart house
 
 smart machines
 
-smart phone
+smart room
 
-social
+soccer
+
+social consequences
 
 social impact
+
+software tutor
 
 soldier
 
 sophisticated sensors
 
+speech
+
 speech recognition
 
-speech synthesis
+spoken language
 
-stanford
+sudoku
 
-stanley
+surveillance
 
-statistics
+symbolic computing
 
-synthesis
+symbolic expressions
 
-think
+symbolic information
 
-thrun
+symbolic knowledge
 
-traffic
+synthesizer
+
+talking computer
+
+theorem proving
+
+thinking
+
+thinking machines
+
+three laws of robotics
+
+transistor
 
 translation software
 
 translation system
 
-travel
+traveling salesman
 
-trojan
+traveling salesperson
 
-turing
+tutor
 
-turing test
-
-uav
+uncertainty
 
 understand speech
 
@@ -530,49 +631,76 @@ understanding speech
 
 unmanned vehicle
 
-vehicle
+user interface
 
-virtual
+verbal command
 
-virus
+video games
 
-visualize
+virtual reality
 
-voice
+virtual tutor
+
+visual
+
+visual information
+
+visual system
+
+voice activated
 
 voice recognition
-
-voiceprint
-
-weather
-
-weather forecast
-
-wheel
-
-wireless
-
-words
-
-worm
 \end{multicols}
 
 Article dissimilarities, as measured by the standard tf-idf cosine similarity
-measure, are shown in Figures \ref{fig:mds-nowhite} and \ref{fig:mds-white}.
-The first figure shows dissimilarities of articles without whitelist words
-selected (that is, all non-stopwords are represented in the article vectors),
-while the second figure shows article dissimilarities after filtering whitelist
-words.
+measure, are shown in Figures \ref{fig:mds-nowhite} and \ref{fig:mds-white}
+using multidimensional scaling.\footnote{The R manual describes multdimensional
+scaling as follows. ``Multidimensional scaling takes a set of dissimilarities
+and returns a set of points such that the distances between the points are
+approximately equal to the dissimilarities. (It is a major part of what
+ecologists call `ordination.') A set of Euclidean distances on $n$ points can
+be represented exactly in at most $n-1$ dimensions. The representation is only
+determined up to location, rotations and reflections.''} The first figure shows
+dissimilarities of articles without whitelist words selected (that is, all
+non-stopwords are represented in the article vectors), while the second figure
+shows article dissimilarities after filtering whitelist words.
 
 \begin{figure}
 \begin{center}
-\includegraphics[scale=0.35]{../corpus/corpus-mds-all-nowhite.png}
-\caption{Article dissimilarity for all articles in the corpus, compared to each
-other after whitelist filtering. Each point represents an article; each article
-is compared to every other with the standard cosine similarity metric. This
-computed similarity (which is between 0.0 and 1.0) is subtracted from 1.0 to
-obtain an article dissimilarity measure. The article pair-wise dissimilarities
-are then plotted in 2D using multi-dimensional scaling.}
+\includegraphics[scale=0.5]{../corpus/oh10/corpus-mds-faceted.png}
+\includegraphics[scale=0.5]{../corpus/oh10/corpus-mds-centroids.png}\\
+\includegraphics[scale=0.75]{../corpus/oh10/corpus-mds.png}
+
+\caption{Article dissimilarity for all articles in the \textit{oh10} corpus and
+centroids. Each point represents an article; each circle represents a centroid.
+Colors indicate category membership. Each article and centroid is compared to
+every other with the standard cosine similarity metric. This computed
+similarity (which is between 0.0 and 1.0) is subtracted from 1.0 to obtain
+a dissimilarity measure. The pair-wise dissimilarities are then plotted in 2D
+using multidimensional scaling.}
+
+\label{fig:mds-oh10}
+\end{center}
+\end{figure}
+
+
+\begin{figure}
+\begin{center}
+\includegraphics[scale=0.5]{../corpus/wap/corpus-mds-faceted.png}
+\includegraphics[scale=0.5]{../corpus/wap/corpus-mds-centroids.png}\\
+\includegraphics[scale=0.75]{../corpus/wap/corpus-mds.png}
+\caption{Article and centroid dissimilarities in the \textit{wap} corpus.}
+
+\label{fig:mds-wap}
+\end{center}
+\end{figure}
+
+\begin{figure}
+\begin{center}
+\includegraphics[scale=0.5]{../corpus/ai/corpus-mds-faceted.png}
+\includegraphics[scale=0.5]{../corpus/ai/corpus-mds-centroids.png}\\
+\includegraphics[scale=0.75]{../corpus/ai/corpus-mds.png}
+\caption{Article and centroid dissimilarities in the \textit{ai} corpus.}
 
 \label{fig:mds-nowhite}
 \end{center}
@@ -580,11 +708,12 @@ are then plotted in 2D using multi-dimensional scaling.}
 
 \begin{figure}
 \begin{center}
-\includegraphics[scale=0.35]{../corpus/corpus-mds-all-white.png}
-\caption{This is the same style of plot as Figure \ref{fig:mds-nowhite}, but
-here the articles are compared after whitelist filtering.}
+\includegraphics[scale=0.5]{../corpus/aiws/corpus-mds-faceted.png}
+\includegraphics[scale=0.5]{../corpus/aiws/corpus-mds-centroids.png}\\
+\includegraphics[scale=0.75]{../corpus/aiws/corpus-mds.png}
+\caption{Article and centroid dissimilarities in the \textit{aiwsmall} corpus.}
 
-\label{fig:mds-white}
+\label{fig:mds-whitesmall}
 \end{center}
 \end{figure}
 
@@ -617,21 +746,27 @@ so that each article has only one true category.
 
 \begin{table}[ht]
   \begin{center}
-  \begin{tabular}{lllllll}
+  \begin{tabular}{llllllllll}
     \textbf{Trained} & \textbf{icsd} & \textbf{csd} & \textbf{sd} &
-    \textbf{no whitelist} & \textbf{whitelist}\\
+    \textbf{oh10} & \textbf{new3} & \textbf{wap} & \textbf{ai} & \textbf{aiw} & \textbf{aiwsmall}\\
 
-    50\% & 0.0 & 0.0 & 0.0 & 80.32\% & 59.97\%\\
-    50 & -0.5 & 0.0 & 0.5 & 82.77 & 57.85\\
-    50 & -0.5 & 0.0 & 1.0 & 80.57 & 62.42\\
-    &  &  &  &  & \\
-    70 & 0.0 & 0.0 & 0.0 & 79.05 & 61.15\\
-    70 & -0.5 & 0.0 & 0.5 & {\textbf{83.36}} & 59.29\\
-    70 & -0.5 & 0.0 & 1.0 & 81.00 & {\textbf{63.77}}\\
-    &  &  &  &  & \\
-    90 & 0.0 & 0.0 & 0.0 & 79.65 & 60.81\\
-    90 & -0.5 & 0.0 & 0.5 & 82.52 & 59.88\\
-    90 & -0.5 & 0.0 & 1.0 & 81.17 & 63.09
+    50\% & 0.0 & 0.0 & 0.0 & 82.14\% & & 82.21\% & 80.32\% & 59.97\% & 54.39\% \\
+    50 & -0.5 & 0.0 & 0.5 & 80.71 & & 81.89 & 82.77 & 57.85 & 53.27 \\
+    50 & -0.5 & 0.0 & 1.0 & 80.00 & & 82.05 & 80.57 & 62.42 & 57.77 \\
+    50 & 0.5 & -0.5 & -0.5 & 83.33 & & \textbf{83.65} & 60.73 & & 31.85 \\ 
+    50 & 0.5 & 0.5 & -1.0 & 83.33 & & 80.61 & 47.72 & & 43.29 \\
+    &  &  &  &  & & & & & \\
+    70 & 0.0 & 0.0 & 0.0 & 84.29 & & 80.61 & 79.05 & 61.15 & 51.74 \\
+    70 & -0.5 & 0.0 & 0.5 & 83.57 & & 77.56 & {\textbf{83.36}} & 59.29 & 50.01 \\
+    70 & -0.5 & 0.0 & 1.0 & 82.86 & & 78.21 & 81.00 & {\textbf{63.77}} & 55.00 \\
+    70 & 0.5 & -0.5 & -0.5 & 83.81 & & 80.45 & 66.64 & & 29.25 \\
+    70 & 0.5 & 0.5 & -1.0 & \textbf{85.95} & & 76.12 & 46.28 & & 32.50 \\
+    &  &  &  &  & & & & & \\
+    90 & 0.0 & 0.0 & 0.0 & 81.19 & & 82.21 & 79.65 & 60.81 & 52.15 \\
+    90 & -0.5 & 0.0 & 0.5 & 80.48 & & 80.93 & 82.52 & 59.88 & 50.52 \\
+    90 & -0.5 & 0.0 & 1.0 & 80.48 & & 81.09 & 81.17 & 63.09 & 55.31 \\
+    90 & 0.5 & -0.5 & -0.5 & 81.43 & & 82.21 & 67.65 & & 37.26 \\ 
+    90 & 0.5 & 0.5 & -1.0 & 82.14 & & 75.32 & 46.96 & & 34.44
   \end{tabular}
   \end{center}
 
@@ -652,7 +787,7 @@ a word separates categories and the range of frequencies of a word across all
 articles. Here we show a small selection of words with high $icsd$ and/or $sd$
 weights.
 
-First are words from the `no whitelist' training set, in which all
+First are words from the \textit{ai} (no whitelist) training set, in which all
 non-stopwords in each article were candidates.
 
 \begin{center}
@@ -666,8 +801,8 @@ non-stopwords in each article were candidates.
   \end{tabular}
 \end{center}
 
-Next are the highly-weighted words from the whitelist-filtered training set, in
-which only a small selection of words were candidates.
+Next are the highly-weighted words from the whitelist-filtered training set
+(\textit{aiw}), in which only a small selection of words were candidates.
 
 \begin{center}
   \begin{tabular}{lll}
