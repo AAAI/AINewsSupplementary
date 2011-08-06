@@ -1,111 +1,99 @@
 <style type="text/css">
-a {
-    color: #004466;
-    text-decoration: none;
-}
+        a {
+                color: #004466;
+                text-decoration: none;
+        }
 
-a:hover {
-    text-decoration: underline;
-}
+        a:hover {
+                text-decoration: underline;
+        }
 
-p {
-    font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;	
-    font-size: 11px; 
-    line-height: 18px;
-    clear:both;
-}
+        p {
+                font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;	
+                font-size: 11px; 
+                line-height: 18px;
+                clear:both;
+        }
 </style>
 
 <TABLE id=master cellSpacing=0 cellPadding=0 width=639 border=0 align="left" style="font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;	font-size: 11px; color: #5E5E5E; ">
-<TBODY>
-    <TR >
-        <TD >
-            <a name='top' id='top'></a>
-            <!-- Banner -->
-            <img style="" width='639px' height='45px' alt="AAAI - AI Alert" title="AAAI - AI Alert" src='http://www.aaai.org/AITopics/pmwiki/pub/images/aialertbannerv2.jpg' />
-            
-            <div>&nbsp;</div>
-            
-            
-            <table width='100%' cellpading='10' style="font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;	font-size: 11px; line-height: 18px;" >
-                <tr>
-                    <td valign='top'>
-                        
-                            Compiled from the <a style="color: #004466;" href='http://www.aaai.org/AITopics/pmwiki/pmwiki.php/AITopics/AINews'>AI in the News</a> collection of
-                            <a style="color: #004466;" href='http://www.aaai.org/AITopics/'>AI Topics</a>.
-                            An <a href='http://www.aaai.org/AITopics/xml/rss/news.xml' style="color:#ff5a00;"><span style="color:#ff5a00;"><b>RSS</b></span></a>
-                             feed is also available.
-                            <a style="border-width:0px;" href='http://www.aaai.org/AITopics/xml/rss/news.xml'>
-                                <img style="border-width:0px;" src="http://www.aaai.org/aitopics/pmwiki/pub/images/rss.gif"/>
-                            </a>
+        <TBODY>
+                <TR >
+                        <TD >
+                                <a name='top' id='top'></a>
+                                <!-- Banner -->
+                                <img style="" width='639px' height='45px' alt="AAAI - AI Alert" title="AAAI - AI Alert" src='http://www.aaai.org/AITopics/pmwiki/pub/images/aialertbannerv2.jpg' />
+
+                                <div>&nbsp;</div>
 
 
-<h2 style="padding:30px 20px 10px 0px; background: url(http://www.aaai.org/AITopics/pmwiki/pub/skins/aaaiblue/backgrounds/backgrounds05.gif) no-repeat left bottom; line-height:10px;">
-<span style="padding-left: 16px; background: url(http://www.aaai.org/AITopics/pmwiki/pub/skins/aaaiblue/backgrounds/bullet.gif) no-repeat left center; font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif; font-size: 13px; color: #202020;">LATEST HEADLINES - $date</span>
-</h2>
+                                <table width='100%' cellpading='10' style="font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;	font-size: 11px; line-height: 18px;" >
+                                        <tr>
+                                                <td valign='top'>
+
+                                                        Compiled from the <a style="color: #004466;" href='http://aaai.org/AITopics/AINews'>AI in the News</a> collection of
+                                                        <a style="color: #004466;" href='http://www.aaai.org/AITopics/'>AI Topics</a>.
+                                                        An <a href='http://www.aaai.org/AITopics/xml/rss/news.xml' style="color:#ff5a00;"><span style="color:#ff5a00;"><b>RSS</b></span></a>
+                                                        feed is also available.
+                                                        <a style="border-width:0px;" href='http://www.aaai.org/AITopics/xml/rss/news.xml'>
+                                                                <img style="border-width:0px;" src="http://www.aaai.org/aitopics/pmwiki/pub/images/rss.gif"/>
+                                                        </a>
 
 
-                    <ul style='margin-top: 10px;  font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif; font-size: 11px; line-height: 18px; color: #5E5E5E;'>
+                                                        <h2 style="padding:30px 20px 10px 0px; background: url(http://www.aaai.org/AITopics/pmwiki/pub/skins/aaaiblue/backgrounds/backgrounds05.gif) no-repeat left bottom; line-height:10px;">
+                                                                <span style="padding-left: 16px; background: url(http://www.aaai.org/AITopics/pmwiki/pub/skins/aaaiblue/backgrounds/bullet.gif) no-repeat left center; font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif; font-size: 13px; color: #202020;">LATEST HEADLINES - $date</span>
+                                                        </h2>
 
 
-#for $id, $n in zip(range(len($news)), $news)
-                        <li><a style='color: #004466;' href='#anchor$id'>$n.title</a>
-                            <span style="font-size:83%">[
-#for $cat in $n.categories
-                                $cat 
-#if $cat != $n.categories[-1]
-                                ,
-#end if
-#end for
-                            ]</span>
-                        </li>
-#end for
-                    </ul>
-                    <br>
-                </td>
-            </tr>
-            <tr>
-                <td width="639px" valign="top" style=" font-size: 11px; line-height: 18px ">
-                <img width='639px' height='30px' src='http://www.aaai.org/AITopics/pmwiki/pub/skins/aaaiblue/backgrounds/backgrounds16.jpg'>
-                            
-<h2 style="padding:30px 20px 10px 0px; background: url(http://www.aaai.org/AITopics/pmwiki/pub/skins/aaaiblue/backgrounds/backgrounds05.gif) no-repeat left bottom; line-height:10px;">
-<span style="padding-left: 16px; background: url(http://www.aaai.org/AITopics/pmwiki/pub/skins/aaaiblue/backgrounds/bullet.gif) no-repeat left center; font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif; font-size: 13px; color: #202020;">SUMMARIES</span>
-</h2>
-    
-                <ul style="font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;	font-size: 11px; line-height: 18px; color: #5E5E5E;">
+                                                        <ul style='margin-top: 10px;  font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif; font-size: 11px; line-height: 18px; color: #5E5E5E;'>
 
-                <!--CONTENT/BLURBS-->
 
-#for $id, $n in zip(range(len($news)), $news)
+                                                                #for $id, $n in zip(range(len($news)), $news)
+                                                                <li><a style='color: #004466;' href='#anchor$id'>$n.title</a>
+                                                                <span style="font-size:83%">[#for $cat in $n.categories#$cat#if $cat != $n.categories[-1]#, #end if##end for#]</span>
+                                                                </li>
+                                                                #end for
+                                                        </ul>
+                                                        <br>
+                                                </td>
+                                        </tr>
+                                        <tr>
+                                                <td width="639px" valign="top" style=" font-size: 11px; line-height: 18px ">
+                                                        <img width='639px' height='30px' src='http://www.aaai.org/AITopics/pmwiki/pub/skins/aaaiblue/backgrounds/backgrounds16.jpg'>
 
-<li style='margin-top:15px; margin-bottom: 15px;' >
-    #echo ($n.pubdate).strftime("%B %d, %Y")#:&nbsp; <strong><a target='_blank' name = 'anchor$id' style='color: #004466;' href='$n.url' rel='nofollow'>$n.title</a></strong> 
-    &nbsp;$n.summary
-    <div style='text-align:right; margin:1px 0px 0px 0px'>
-        <img src='http://www.aaai.org/AITopics/pmwiki/pub/images/next_arrow1.gif' alt='' title='' /> 
-#for $cat in $n.categories
-        <a class='wikilink' style='color: #004466;' href='#echo $aitopic_urls[$topicids[$cat]]#'>$cat</a>  &nbsp;&nbsp;&nbsp;<a href='#top'>
-#if $cat != $n.categories[-1]
-                                ,
-#end if
-#end for
-            <img  border='0px' style='margin-bottom:-1px' src='http://www.aaai.org/AITopics/pmwiki/pub/images/up_arrow1.gif'
-            alt='back to top' title='back to top' />
-        </a>
-    </div>
-</li>
+                                                        <h2 style="padding:30px 20px 10px 0px; background: url(http://www.aaai.org/AITopics/pmwiki/pub/skins/aaaiblue/backgrounds/backgrounds05.gif) no-repeat left bottom; line-height:10px;">
+                                                                <span style="padding-left: 16px; background: url(http://www.aaai.org/AITopics/pmwiki/pub/skins/aaaiblue/backgrounds/bullet.gif) no-repeat left center; font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif; font-size: 13px; color: #202020;">SUMMARIES</span>
+                                                        </h2>
 
-#end for
-<!--END CONTENT/BLURBS-->
-        </ul>
-                                </td>
-                            </tr>
-                        </table>
-                        <br />
-                        <!-- Footer -->
-                        
-                    </TD>
+                                                        <ul style="font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;	font-size: 11px; line-height: 18px; color: #5E5E5E;">
+
+                                                                <!--CONTENT/BLURBS-->
+
+                                                                #for $id, $n in zip(range(len($news)), $news)
+
+                                                                <li style='margin-top:15px; margin-bottom: 15px;' >
+                                                                #echo ($n.pubdate).strftime("%B %d, %Y")#:&nbsp; <strong><a target='_blank' name = 'anchor$id' style='color: #004466;' href='$n.url' rel='nofollow'>$n.title</a></strong> 
+                                                                &nbsp;$n.summary
+                                                                <div style='text-align:right; margin:1px 0px 0px 0px'>
+                                                                        <img src='http://www.aaai.org/AITopics/pmwiki/pub/images/next_arrow1.gif' alt='' title='' /> 
+                                                                        #for $cat in $n.categories#<a class='wikilink' style='color: #004466;' href='#echo $aitopic_urls[$topicids[$cat]]#'>$cat</a>#if $cat != $n.categories[-1]#,#end if# #end for#&nbsp;&nbsp;&nbsp;<a href='#top'>
+                                                                                <img  border='0px' style='margin-bottom:-1px' src='http://www.aaai.org/AITopics/pmwiki/pub/images/up_arrow1.gif'
+                                                                                alt='back to top' title='back to top' />
+                                                                        </a>
+                                                                </div>
+                                                                </li>
+
+                                                                #end for
+                                                                <!--END CONTENT/BLURBS-->
+                                                        </ul>
+                                                </td>
+                                        </tr>
+                                </table>
+                                <br />
+                                <!-- Footer -->
+
+                        </TD>
                 </TR>
-                <TR><TD><span style="color: #5E5E5E;">
-        <div style="width=100%; clear:both"> </div>
-        
+        </tbody>
+</table>
+
