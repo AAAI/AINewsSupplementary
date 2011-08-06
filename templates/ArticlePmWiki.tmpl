@@ -1,7 +1,7 @@
-(:description $n.desc :) [[<<]]
+(:description $n.summary :) [[<<]]
 %newwin%[[$n.url | '''$n.title''']]
 
-#echo ($n.desc).strip()#
+#echo ($n.summary)#
 
 (:table border=1 cellpadding=5:)
 (:cell:) Author:
@@ -17,43 +17,27 @@
 (:cell:) #echo ($n.pubdate).strftime("%B %d, %Y")#
 (:cell:) #echo ($n.crawldate).strftime("%B %d, %Y")#
 (:cell:) $n.publisher
-(:cell:) $n.topic
+(:cell:) #for $cat in $n.categories# $cat #end for#
 (:cell:) NewsFinder
 (:cell:) Text
 (:cell:) English
 (:cell:) HTML
 (:tableend:)
 
-(:table border=1 cellpadding=5:)
-(:cell:) Final score:
-(:cell:) Initial rank:
-(:cell:) Final rank:
-(:cell:) Average rating:
-(:cell:) Average admin rating:
-(:cell:) Rating standard deviation:
-(:cell:) Count of ratings:
-(:cellnr:) $n.score
-(:cell:) $n.initsvm
-(:cell:) $n.svmscore
-(:cell:) $n.rate
-(:cell:) $n.adminrate
-(:cell:) $n.ratesd
-(:cell:) $n.ratecount
-(:tableend:)
+Whitelist words:
+#for $w in $n.white_wordfreq
+\# $w: $n.white_wordfreq[$w]#if $n.white_wordfreq[$w] == 1# occurrence #else# occurrences #end if#
+#end for
 
-Score breakdown:
+Categorization (need >= 0.5 to match):
+#for $cat in sorted($n.cat_probs.keys())
+\# $cat: $n.cat_probs[$cat]
+#end for
 
+Transcript:
 #for $s in $n.transcript
-\#$s
+\# $s
 #end for
-
-Topic breakdown:
-
-<table>
-#for $topic,$sim in sorted($n.topicsims.items(), key=lambda x: x[1], reverse=True)
-<tr><td>$topic</td><td>#echo '%.4f' % $sim #</td></tr>
-#end for
-</table>
 
 (:collections :) brokenlinkform:brokenlink
 
