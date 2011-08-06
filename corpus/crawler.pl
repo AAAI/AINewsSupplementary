@@ -14,7 +14,7 @@ my $table_categories = "cat_corpus_cats";
 
 my $mysql = DBI->connect("DBI:mysql:database=$database;host=$host", $user, $pw);
 
-my $extractor = '/home/josh/AINews/extractors/goose/run.sh';
+my $extractor = '/home/josh/AINews/tools/goose/run.sh';
 my $savedir = '/home/josh/AINews/corpus/extracted';
 
 my $catprefix = "http://www.aaai.org/AITopics/pmwiki/pmwiki.php/AITopics/";
