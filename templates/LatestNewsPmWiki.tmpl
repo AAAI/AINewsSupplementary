@@ -1,23 +1,5 @@
-(:keywords AI, artificial intelligence, AAAI, Association for the Advancement of Artificial Intelligence, formerly American Association for Artificial Intelligence, AI Topics, pathfinder, computer science, cognitive science, robots, agents, games, puzzles, expert systems, natural language, LISP, history, philosophy, bibliography, news, newspaper, magazine, science fiction, smart rooms, vision, speech, machine learning, chess, education, intelligent tutoring, reasoning, inference, logic, representation, ontology, turing, space, medicine, law, applications, overview, interface :)
-----
-[[#top]]
-(:head:)AI in the News: Interesting News Stories about AI(:headend:)
-----
-(:contentbox:)
-<div id=Contents>Contents</div>
-*[[#recent | Recent News Stories]]
-*[[#feeds| RSS Feeds by Topic]]
-*%newwin%[[http://www.aaai.org/cgi-dada/mail.cgi | Subscribe to News Alerts]]  
-*[[AITopics/NewsArchive | News Archive]]
-*[[#additional | Additional News Collections]]
-*[[AITopics/AINewsProcedure| Details About NewsFinder]]
-(:contentboxend:)
+(:include AITopics.AINewsHeader :)
 
-''AI in the News'' is a AAAI service to alert readers to current news articles in the field of AI that appear in various online news sources. An agent known as NewsFinder periodically crawls the web looking for AI-related news articles. The collection of articles is first filtered to select only those that mention at least one of many key terms related to AI. Then duplicate articles are detected using a semantic similarity metric, and filtered out. Finally, each article is categorized using a bank of support vector machines, one for each of the 19 topics in AITopics; articles matching no topics are also filtered out of the collection. The resulting collection is published on this web page, in the %newwin%[[http://www.aaai.org/cgi-dada/mail.cgi | AI-Alert email list]], and in our [[#feeds | various topic-oriented and aggregate RSS feeds]].
-
-Details about NewsFinder can be found on the [[AINewsProcedure |  '''NewsFinder''']] wiki page.
-
-<div style="clear:both;"></div>
 [[#recent]]
 (:sectiontitle:)Recent News Stories - $date (:sectiontitleend:)
 
@@ -28,64 +10,5 @@ Details about NewsFinder can be found on the [[AINewsProcedure |  '''NewsFinder'
 
 #end for
 
-[[#feeds]]
-----
-[[#feeds]]
-(:rsstitle:)RSS FEEDS (:rsstitleend:)
-[-[[SiteDir:xml/rss/news.xml | General]] | [[SiteDir:xml/rss/agent.xml | Agents]] | [[SiteDir:xml/rss/apps.xml | Applications]] | [[SiteDir:xml/rss/cogsci.xml | Cognitive Science]] | [[SiteDir:xml/rss/edu.xml | Education]] | [[SiteDir:xml/rss/ethsoc.xml | Ethical &amp; Social Implications]] |  [[SiteDir:xml/rss/expert.xml | Expert Systems]] | [[SiteDir:xml/rss/game.xml | Games &amp; Puzzles]] | [[SiteDir:xml/rss/hist.xml | History]] | [[SiteDir:xml/rss/interf.xml | Interfaces]] | [[SiteDir:xml/rss/ml.xml | Machine Learning]] | [[SiteDir:xml/rss/nlp.xml | Natural Language Processing]] | [[SiteDir:xml/rss/phil.xml | Philosophy]] | [[SiteDir:xml/rss/reason.xml | Reasoning]] | [[SiteDir:xml/rss/rep.xml | Representation]] | [[SiteDir:xml/rss/robot.xml | Robots]] | [[SiteDir:xml/rss/robovid.xml | Robot Videos]] | [[SiteDir:xml/rss/scifi.xml | Science Fiction]] | [[SiteDir:xml/rss/speech.xml | Speech]] | [[SiteDir:xml/rss/systems.xml | Systems &amp; Languages]] | [[SiteDir:xml/rss/turing.xml | Turing Test]] | [[SiteDir:xml/rss/vision.xml | Vision]]-]
+(:include AITopics.AINewsFooter :)
 
-
-[[#additional]]
-----
-(:headlinestitle:)Additional News Collections(:headlinestitleend:)
-
-(:if false:)
-----
-[[#pages]]
-(:sectiontitle:)Related Pages(:sectiontitleend:)
-(:ifend:)
-(:table width=100%:)
-(:cellnr:)
-'''AI Topics Pages'''
-* [[AITopics/NewsArchive | ''AI in the News'' Archive]] - Previously featured articles 
-* '''AI Alert''' - the biweekly ''AI in the News'' email update [[#aialert]]
-** %newwin%[[http://www.aaai.org/cgi-dada/mail.cgi | '''Subscribe/unsubscribe''']]
-** Prior to July, 2008, AI Alert pages were separate from ''AI in the News'' pages. To see the older AI Alert pages, visit the [[AITopics/AIAlert | AI Alert Archive]].
-* [[AITopics/NewsSources | AI News Sources &amp; Collections]] including AI-Generated News
-* [[AITopics/AINewsToons | AI News Toons]]
-* [[AITopics/AINewsColumn | Quarterly ''AI in the News'' column]] in AI Magazine
-* [[AITopics/JournalistResources | Resources for Journalists]] 
-* [[AITopics/AIEffect | &quot;The AI Effect&quot;]] 
-* [[AITopics/History#thisday | This Day in History]]
-
-'''Other AI Topics Multimedia Collections'''
-*[[AIVideos/HomePage | AI Videos]]
-*[[AITopics/ShowTime | It's Show Time]]
-
-'''AI News Pages Maintained by Others'''
-*[[http://aboutai.com/news/ | AboutAI]] - Latest News Articles on AISolver.com
-*%newwin%[[http://www.robotreviews.com/news | Robot News]] - from robot reviews
-*%newwin%[[http://www.roboticsbusinessreview.com/ | Robotics Business Review > Commercial Uses of Robotics]], a subscription-based service, with some articles and abstracts, and all headlines, available for free.
-*%newwin%[[http://ehpub.bm23.com/public/?q=preview_message&fn=Link&t=1&ssid=5300&id=dqf0e9l4ff9bhexxcijh45hhp6vmv&id2=fij3n0yzmzrh44b6n5dapkviu3jtv&subscriber_id=atbtkqjmtxpzjrdyzdtehggsfoutbgc&messageversion_id=azgmlnzlrjehdkxdguxhoebxggfrbpj&delivery_id=bhhdtnmwhjeevgccoebngfnjeqixbgm&tid=1.438.C7wD6w~B4a6.1hnz5..C7wD7g~J9Qk.B9AD6~BXPzv.l.B9AD7~cUb.x6YX9Q | Robotics Trends]]  - subscribe to the online newsletter for news about robots
-*%newwin%[[http://www.sciencedaily.com/news/computers_math/artificial_intelligence/ | Science Daily]] News about AI
-*%newwin%[[http://www.scientificamerican.com/search/index.cfm?i=1&q=robots&sort=publish_date&submit=submit&submit.x=0&submit.y=0&u1=q | Scientific American]] Stories about Robots
-
-(:cell align=center valign=top:) ArtDir:clipperboat.jpg"AI news clipper logo"
-(:tableend:)
-
-
-----
-'-[[#art]]'''PLEASE NOTE:''' 1) because %red%an excerpt may not reflect the overall tenor of the article%% from which it was harvested, %red%nor contain all of the relevant information%%, you are '''''strongly encouraged''''' to %red%read the entire article%%; 2) please remember that the news is offered &quot;[[AITopics/Notices | '''{+as is+}''']]&quot; and the fact that an article has been selected does not imply any endorsement whatsoever; 3) Please be aware that the content of an external third party site may have changed since we established our link to it. ''If you decide to access these Websites, you do so at your own risk; ''4) please respect the rights of the [[AITopics/Notices#copy | copyright]] holders; and as explained in detail in our [[AITopics/Notices | Notices &amp; Disclaimers]],'' %red%just because we mention something on this page, you should not infer that...%%''-'
-
->>comment<<
-(:if enabled AuthPw:)
-
-[[#submission]]
-----
-(:sectiontitle:)News Submission Form(:sectiontitleend:)
-newssubmissionform
-Note: Placement of an item inside AINews is dependent on that item's tags. Specifically, if an item is tagged with 'video' or if it is in the AIVideos/ page group, it will get placed in the Videos section. If an item is tagged with 'audio' or if it is in the AIAudio/ page group, it will get placed in the Audio section. Otherwise it will get placed in the general news headlines section. Tags also determine which RSS feeds the item goes in. For example, an item tagged with "speech" will get inserted into the "speech" RSS feed.
-(:ifend:)
->><<(:videostitleend:)
-
-        
