@@ -5,7 +5,7 @@
 
 #for $id, $n in zip(range(len($news)), $news)
 
-*%newwin% #echo ($n.pubdate).strftime("%B %d, %Y")#: [[$n.url | $n.title]]. $n.publisher.  &quot;$n.summary&quot;%%([[info->AIArticles.$year-$n.urlid]]) 	%rfloat%[[#top | ImageDir:up_arrow1.gif"back to top"]]
+*%newwin% #echo ($n.pubdate).strftime("%B %d, %Y")#: [[$n.url | $n.title]]. $n.publisher.  &quot;$n.summary&quot;%% ([[info->AIArticles.$year-$n.urlid]]) 	%rfloat%[[#top | ImageDir:up_arrow1.gif"back to top"]]
 ->ImageDir:next_arrow1.gif #for $cat in $n.categories#[[AITopics/$cat | $cat]]#if $cat != $n.categories[-1]#,#end if# #end for# #if $rater#(:rater $n.urlid:)#end if#[[<<]]
 
 #end for
