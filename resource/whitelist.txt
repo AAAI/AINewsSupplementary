@@ -46,7 +46,6 @@ image analysis
 image processing
 image recognition
 image understanding
-induction
 informatics
 intelligent agent
 intelligent computers
@@ -73,6 +72,7 @@ plan the route
 planning and scheduling
 poker bot
 poker program
+process information
 qualitative reasoning
 reading tutor
 real time information
@@ -80,6 +80,7 @@ recognizing faces
 recommendation engine
 recommendation system
 reinforcement learning
+robotic arm
 rule based
 semantic analysis
 semantic search
