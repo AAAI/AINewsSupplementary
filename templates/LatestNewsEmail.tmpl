@@ -72,9 +72,15 @@
                                                                 #for $id, $n in zip(range(len($news)), $news)
 
                                                                 <li style='margin-top:15px; margin-bottom: 15px;' >
-                                                                #echo ($n.pubdate).strftime("%B %d, %Y")#:&nbsp; <strong><a target='_blank' name = 'anchor$id' style='color: #004466;' href='$n.url' rel='nofollow'>$n.title</a></strong> 
-                                                                &nbsp;$n.summary
+                                                                #echo ($n.pubdate).strftime("%B %d, %Y")#:&nbsp; <strong><a target='_blank' name = 'anchor$id' style='color: #004466;' href='$n.url' rel='nofollow'>$n.title</a></strong> from $n.publisher<br/>
+                                                                $n.summary (<a href="http://aaai.org/AITopics/AIArticles/$year-$n.urlid">info</a>) 
                                                                 <div style='text-align:right; margin:1px 0px 0px 0px'>
+                                                                        <form action='http://aaai.org/AITopics/AINews' method='POST'>
+                                                                        <input type='hidden' name='n' value='AITopics.AINews' />
+                                                                        <input type='hidden' name='action' value='rater' />
+                                                                        <input type='hidden' name='rs_id' value='$n.urlid' />
+                                                                        <input type='radio' name='rating_#echo $n.urlid#[]' value='0' id='rating_#echo $n.urlid#0' /><label for='rating_#echo $n.urlid#0'>Not relevant</label> <input type='radio' name='rating_#echo $n.urlid#[]' value='1' id='rating_#echo $n.urlid#1' /><label for='rating_#echo $n.urlid#1'>Very Low</label> <input type='radio' name='rating_#echo $n.urlid#[]' value='2' id='rating_#echo $n.urlid#2' /><label for='rating_#echo $n.urlid#2'>Low</label> <input type='radio' name='rating_#echo $n.urlid#[]' value='3' id='rating_#echo $n.urlid#3' /><label for='rating_#echo $n.urlid#3'>Medium</label> <input type='radio' name='rating_#echo $n.urlid#[]' value='4' id='rating_#echo $n.urlid#4' /><label for='rating_#echo $n.urlid#4'>High</label> <input type='radio' name='rating_#echo $n.urlid#[]' value='5' id='rating_#echo $n.urlid#5' /><label for='rating_#echo $n.urlid#5'>Very High</label> <input type='submit' name='post' value='Rate' class='inputbutton' />
+                                                                        </form>
                                                                         <img src='http://www.aaai.org/AITopics/pmwiki/pub/images/next_arrow1.gif' alt='' title='' /> 
                                                                         #for $cat in $n.categories#<a class='wikilink' style='color: #004466;' href='#echo $aitopic_urls[$topicids[$cat]]#'>$cat</a>#if $cat != $n.categories[-1]#,#end if# #end for#&nbsp;&nbsp;&nbsp;<a href='#top'>
                                                                                 <img  border='0px' style='margin-bottom:-1px' src='http://www.aaai.org/AITopics/pmwiki/pub/images/up_arrow1.gif'
