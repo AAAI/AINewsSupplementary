@@ -10,7 +10,6 @@ abductive inference
 abductive reasoning
 adaptive control
 adaptive system
-ai
 analogical reasoning
 artificial intelligence
 artificial life
@@ -24,7 +23,6 @@ causal reasoning
 cognitive assist
 cognitive psychology
 cognitive science
-common sense
 computer art
 computer music
 computer vision
@@ -37,6 +35,7 @@ emotion in computers
 ethical issue
 ethical question
 expert system
+extract meaning
 face recognition
 fallible human
 fraud detection
@@ -49,7 +48,6 @@ image understanding
 informatics
 intelligent agent
 intelligent computers
-intelligent machines
 intelligent robots
 intelligent software
 intelligent tutoring
