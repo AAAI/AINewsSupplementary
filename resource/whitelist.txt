@@ -12,11 +12,12 @@ adaptive control
 adaptive system
 analogical reasoning
 artificial intelligence
-artificial life
 artificial thinking
 assistive technology
+automated assistance
 automatic translation
 autonomous vehicle
+brain controlled
 brain science
 case based reasoning
 causal reasoning
@@ -102,4 +103,6 @@ uncertain reasoning
 understand language
 understand speech
 unmanned vehicle
+virtual prosthetic
+voice action
 voice recognition
