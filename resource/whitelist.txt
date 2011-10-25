@@ -50,7 +50,6 @@ informatics
 intelligent agent
 intelligent computers
 intelligent robots
-intelligent software
 intelligent tutoring
 language generation
 language processing
@@ -63,7 +62,6 @@ machine vision
 machines take over
 nature of intelligence
 neural networks
-neuron
 onboard computer
 pattern analysis
 pattern recognition
