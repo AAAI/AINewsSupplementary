@@ -31,16 +31,12 @@ Whitelist words:
 
 Categorization (need >= 0.5 to match):
 #for $cat in sorted($n.cat_probs.keys())
-<<<<<<< HEAD
-\# $cat: $n.cat_probs[$cat]
-=======
 \# #if float($n.cat_probs[$cat]) >= 0.5#'''#end if#$cat: $n.cat_probs[$cat]#if float($n.cat_probs[$cat]) >= 0.5#'''#end if#
 #end for
 
 Duplicates (threshold=$dupthreshold):
 #for $urlid,$title,$sim in sorted($n.duplicates)
 \# (sim=#echo ("%.3f" % $sim)#) [[$year-$urlid | $urlid: $title]]
->>>>>>> af77f94864424927079c0fba2b40c2732e89c831
 #end for
 
 Transcript:
