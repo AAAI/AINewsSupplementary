@@ -3,6 +3,7 @@ Bayes
 DARPA
 Herbert Simon
 Lady Lovelace
+Luddite
 Marvin Minsky
 Singularity
 Turing
@@ -27,6 +28,12 @@ cognitive science
 computer art
 computer music
 computer vision
+computer assessment
+computer grading
+computer music
+computer vision
+computers and humans
+computer has been taught
 cooperating agents
 data mining
 decision tree
@@ -42,6 +49,9 @@ fallible human
 fraud detection
 fuzzy logic
 humanoid
+humans and machines
+humans and computers
+human and machine integration
 image analysis
 image processing
 image recognition
@@ -59,6 +69,7 @@ logical reasoning
 machine learning
 machine translation
 machine vision
+machines and humans
 machines take over
 nature of intelligence
 neural networks
@@ -97,6 +108,10 @@ sophisticated sensors
 speech recognition
 translation software
 translation system
+teaching the computer
+translation software
+translation system
+ubiquitous computing
 uncertain reasoning
 understand language
 understand speech
