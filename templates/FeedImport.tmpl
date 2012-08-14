@@ -15,7 +15,7 @@
         <source_id>#echo $n.source_id#</source_id>
         <tfpn>xx</tfpn>
         <published>#if $n.published#1#else#0#end if#</published>
-        <image_path>public://newsfinder_images/#echo $n.urlid#.jpg</image_path>
+        <image_path>$n.image_path</image_path>
         <image_url>#echo cgi.escape($n.image_url)#</image_url>
         <newsfinder></newsfinder>
         <content>$n.content</content>
