@@ -26,6 +26,8 @@ cognitive assist
 cognitive psychology
 cognitive science
 computer art
+computer music
+computer vision
 computer assessment
 computer grading
 computer music
@@ -104,6 +106,8 @@ social impact
 social implication
 sophisticated sensors
 speech recognition
+translation software
+translation system
 teaching the computer
 translation software
 translation system

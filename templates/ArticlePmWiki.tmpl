@@ -31,6 +31,7 @@ Whitelist words:
 
 Categorization (need >= 0.5 to match):
 #for $cat in sorted($n.cat_probs.keys())
+\# $cat: $n.cat_probs[$cat]
 \# #if float($n.cat_probs[$cat]) >= 0.5#'''#end if#$cat: $n.cat_probs[$cat]#if float($n.cat_probs[$cat]) >= 0.5#'''#end if#
 #end for
 
