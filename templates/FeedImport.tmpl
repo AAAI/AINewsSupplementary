@@ -1,0 +1,24 @@
+#import cgi
+<?xml version="1.0" encoding="utf-8"?>
+<news>
+#for $n in $news
+<article>
+        <guid>news$n.urlid</guid>
+        <title>$n.title</title>
+        <summary>$n.summary</summary>
+        <crawldate>#echo ($n.crawldate).strftime("%b %d %Y")#</crawldate>
+        <pubdate>#echo ($n.pubdate).strftime("%b %d %Y")#</pubdate>
+        <pubyear>#echo ($n.pubdate).strftime("%Y")#</pubyear>
+        #if len($n.categories)>0#<topics>#echo ",".join($n.categories)#</topics>#end if#
+        <url>#echo cgi.escape($n.url)#</url>
+        <source>$n.source</source>
+        <source_id>#echo $n.source_id#</source_id>
+        <tfpn>xx</tfpn>
+        <published>#if $n.published#1#else#0#end if#</published>
+        <image_path>public://newsfinder_images/#echo $n.urlid#.jpg</image_path>
+        <image_url>#echo cgi.escape($n.image_url)#</image_url>
+        <newsfinder></newsfinder>
+        <content>$n.content</content>
+</article>
+#end for
+</news>
