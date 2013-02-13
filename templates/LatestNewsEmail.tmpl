@@ -1,100 +1,371 @@
-<style type="text/css">
-  a {
-  color: #004466;
-  text-decoration: none;
-  }
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <!-- If you delete this meta tag, the ground will open and swallow you. -->
+    <meta name="viewport" content="width=device-width" />
 
-  a:hover {
-  text-decoration: underline;
-  }
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>AI-Alert from AITopics</title>
 
-  p {
-  font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;	
-  font-size: 11px; 
-  line-height: 18px;
-  clear:both;
-  }
-</style>
+    <style>
+      /* ------------------------------------- 
+      GLOBAL 
+      ------------------------------------- */
+      * { 
+      margin:0;
+      padding:0;
+      }
+      * {
+      font-family: Arial, Helvetica, sans-serif;
+      }
 
-<TABLE id=master cellSpacing=0 cellPadding=0 width=639 border=0 align="left" style="font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;	font-size: 11px; color: #5E5E5E; ">
-  <TBODY>
-    <TR >
-      <TD >
-        <a name='top' id='top'></a>
-        <!-- Banner -->
-        <img style="" width='639px' height='45px' alt="AAAI - AI Alert" title="AAAI - AI Alert" src='http://www.aaai.org/AITopics/pmwiki/pub/images/aialertbannerv2.jpg' />
+      html {
+      font-size: 81.3%;
+      }
 
-        <div>&nbsp;</div>
+      img { 
+      max-width: 100%; 
+      border: 0;
+      }
+      .collapse {
+      margin:0;
+      padding:0;
+      }
+      body {
+      -webkit-font-smoothing:antialiased; 
+      -webkit-text-size-adjust:none; 
+      width: 100%!important; 
+      height: 100%;
+      line-height: 1.5;
+      font-size: 1.083em;
+      }
 
 
-        <table width='100%' cellpading='10' style="font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;	font-size: 11px; line-height: 18px;" >
-          <tr>
-            <td valign='top'>
+      /* ------------------------------------- 
+      ELEMENTS 
+      ------------------------------------- */
+      a { color: navy;}
 
-              Compiled from the <a style="color: #004466;" href='http://aaai.org/AITopics/AINews'>AI in the News</a> collection of
-              <a style="color: #004466;" href='http://aaai.org/AITopics/'>AI Topics</a>.
-              An <a href='http://aaai.org/AITopics/xml/rss/news.xml' style="color:#ff5a00;"><span style="color:#ff5a00;"><b>RSS</b></span></a>
-              feed is also available.
-              <a style="border-width:0px;" href='http://aaai.org/AITopics/xml/rss/news.xml'>
-                <img style="border-width:0px;" src="http://www.aaai.org/aitopics/pmwiki/pub/images/rss.gif"/>
+      .btn {
+      text-decoration:none;
+      color: #FFF;
+      padding:10px 16px;
+      font-weight:bold;
+      margin-right:10px;
+      text-align:center;
+      cursor:pointer;
+      display: inline-block;
+      }
+
+      .btn.source {
+      background-color: #666;
+      }
+
+      .btn.site {
+      background-color: #999;
+      }
+
+      p.callout {
+      padding:15px;
+      background-color:#ECF8FF;
+      margin-bottom: 15px;
+      }
+      .callout a {
+      font-weight:bold;
+      color: #2BA6CB;
+      }
+
+      table.footer {
+      background-color: #ebebeb;      
+      }
+      table.footer td {
+      padding:15px;
+      }
+      .social .soc-btn {
+      padding: 3px 7px;
+      font-size:12px;
+      margin-bottom:10px;
+      text-decoration:none;
+      color: #FFF;font-weight:bold;
+      display:block;
+      text-align:center;
+      }
+      a.fb { background-color: #3B5998!important; }
+      a.home { background-color: #666!important; }
+      a.news { background-color: #999!important; }
+      a.ms { background-color: #000!important; }
+
+      .sidebar .soc-btn { 
+      display:block;
+      width:100%;
+      }
+
+      /* ------------------------------------- 
+      HEADER 
+      ------------------------------------- */
+      .header .column { padding: 15px 0px 30px 0px; }
+
+      /* ------------------------------------- 
+      BODY 
+      ------------------------------------- */
+      table.body-wrap { width: 100%;}
+
+
+      /* ------------------------------------- 
+      FOOTER 
+      ------------------------------------- */
+      table.footer-wrap { width: 100%;	clear:both!important;
+      }
+      .footer-wrap .container td.content  p {
+      border-top: 1px solid rgb(215,215,215);
+      padding-top:15px;
+      }
+      .footer-wrap .container td.content p {
+      font-size:10px;
+      font-weight: bold;
+      
+      }
+
+
+      /* ------------------------------------- 
+      TYPOGRAPHY 
+      ------------------------------------- */
+      h1,h2,h3,h4,h5,h6 {
+      line-height: 1.2;
+      margin-bottom:15px;
+      color:#000;
+      }
+      h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
+      display: block;
+      font-size: 80%;
+      color: #6f6f6f;
+      text-transform: none;
+      font-weight: normal;
+      }
+
+      h1 {
+      font-weight: bold;
+      font-size: 2.5em;
+      font-variant: small-caps;
+      margin-bottom: 0;
+      }
+      h2 {
+      font-size: 1.15em;
+      font-weight: normal;
+      font-style: italic;
+      margin-bottom: 10px;
+      }
+      h3 {
+      font-weight: bold;
+      font-size: 1.45em;
+      }
+
+      #logo {
+      height: 100px;
+      }
+
+      .collapse { margin:0!important;}
+
+      p, ul { 
+      margin-bottom: 10px;
+      line-height:1.5;
+      }
+
+      ul li {
+      margin-left:5px;
+      list-style-position: inside;
+      }
+
+      /* ------------------------------------- 
+      SIDEBAR 
+      ------------------------------------- */
+      ul.sidebar {
+      background:#ebebeb;
+      display:block;
+      list-style-type: none;
+      }
+      ul.sidebar li { display: block; margin:0;}
+      ul.sidebar li a {
+      text-decoration:none;
+      color: #666;
+      padding:10px 16px;
+      /* 	font-weight:bold; */
+      margin-right:10px;
+      /* 	text-align:center; */
+      cursor:pointer;
+      border-bottom: 1px solid #777777;
+      border-top: 1px solid #FFFFFF;
+      display:block;
+      margin:0;
+      }
+      ul.sidebar li a.last { border-bottom-width:0px;}
+      ul.sidebar li a h1,ul.sidebar li a h2,ul.sidebar li a h3,ul.sidebar li a h4,ul.sidebar li a h5,ul.sidebar li a h6,ul.sidebar li a p { margin-bottom:0!important;}
+
+
+
+      /* --------------------------------------------------- 
+      RESPONSIVENESS
+      Nuke it from orbit. It's the only way to be sure. 
+      ------------------------------------------------------ */
+
+      /* Set a max-width, and make it display as block so it will automatically stretch to that width, but will also shrink down on a phone or something */
+      .container {
+      display:block!important;
+      max-width:700px!important;
+      margin:0 auto!important; /* makes it centered */
+      clear:both!important;
+      }
+
+      /* This should also be a block element, so that it will fill 100% of the .container */
+      .content {
+      padding:15px;
+      max-width:700px;
+      margin:0 auto;
+      display:block; 
+      }
+
+      /* Let's make sure tables in the content area are 100% wide */
+      .content table { width: 100%; }
+
+
+      /* Odds and ends */
+      .column {
+      width: 330px;
+      float:left;
+      }
+      .column tr td { padding: 15px; }
+      .column-wrap { 
+      padding:0!important; 
+      margin:0 auto; 
+      max-width:600px!important;
+      }
+      .column table { width:100%;}
+      .social .column {
+      width: 330px;
+      min-width: 279px;
+      float:left;
+      }
+
+      /* Be sure to place a .clear element after each set of columns, just to be safe */
+      .clear { display: block; clear: both; }
+
+      span.date {
+      white-space: nowrap;
+      }
+
+
+      /* ------------------------------------------- 
+      PHONE
+      For clients that support media queries.
+      Nothing fancy. 
+      -------------------------------------------- */
+      @media only screen and (max-width: 600px) {
+
+      .header .column { padding: 10px 0px 10px 0px !important; }
+      
+      a[class="btn"] { display:block!important; margin-bottom:10px!important; background-image:none!important; margin-right:0!important;}
+
+      div[class="column"] { width: auto!important; float:none!important; }
+      
+      table.social div[class="column"] {
+      width:auto!important;
+      }
+
+      }
+    </style>
+
+  </head>
+  
+  <body bgcolor="#FFFFFF" topmargin="0" leftmargin="0" marginheight="0" marginwidth="0">
+
+    <!-- BODY -->
+    <table class="body-wrap" bgcolor="">
+      <tr>
+	<td></td>
+	<td class="container" align="" bgcolor="#FFFFFF">
+	  
+	  <!-- content -->
+	  <div class="content header">
+
+            <div class="column">
+              <a href="http://aitopics.org">
+                <img src="http://aitopics.org/sites/default/files/aitopics-logo-1-color-org_0.png"/>
               </a>
-
-
-              <h2 style="padding:30px 20px 10px 0px; background: url(http://www.aaai.org/AITopics/pmwiki/pub/skins/aaaiblue/backgrounds/backgrounds05.gif) no-repeat left bottom; line-height:10px;">
-                <span style="padding-left: 16px; background: url(http://www.aaai.org/AITopics/pmwiki/pub/skins/aaaiblue/backgrounds/bullet.gif) no-repeat left center; font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif; font-size: 13px; color: #202020;">LATEST HEADLINES - $date</span>
+            </div>
+            <div class="column">
+              <h1>AI-Alert</h1>
+              <h2>Latest Headlines for the week ending <span class="date">$date</span>
               </h2>
+            </div>
+          </div>
 
+          <div style="clear"></div>
 
-              <ul style='margin-top: 10px;  font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif; font-size: 11px; line-height: 18px; color: #5E5E5E;'>
+          #for $n in $articles
 
+	  <div class="content header">
+	    
+	    <table>
+	      <tr>
+		<td class="small" width="20%" style="vertical-align: top; padding-right:10px;">
+                  #if $n.image != ""#
+                  <img src="$n.image" title="$n.title" alt="$n.title"/>
+                  #end if#
+                </td>
+		<td>
+		  <h3>$n.title
+                    <small>$n.source, #echo ($n.pubdate).strftime("%b %d %Y")#</small>
+                  </h3>
+                  <p>
+                    $n.summary
+                  </p>
+                  <p>
+                    $n.topics
+                  </p>
+		  <a class="btn source" href="$n.url">Read at $n.source &raquo;</a>
+                  <a class="btn site" href="$n.link">More info at AITopics &raquo;</a>
+		</td>
+	      </tr>
+	    </table>
+	    
+	  </div><!-- /content -->
+	  
+          #end for
 
-                #for $id, $n in zip(range(len($articles)), $articles)
-                <li><a style='color: #004466;' href='#anchor$id'>$n.title</a>
-                  <span style="font-size:83%">[$n.topics]</span>
-                </li>
-                #end for
-              </ul>
-              <br>
-            </td>
-          </tr>
-          <tr>
-            <td width="639px" valign="top" style=" font-size: 11px; line-height: 18px ">
-              <img width='639px' height='30px' src='http://www.aaai.org/AITopics/pmwiki/pub/skins/aaaiblue/backgrounds/backgrounds16.jpg'>
+	  <!-- content -->
+	  <div class="content">
+	    <table class="footer">
+	      <tr>
+		<td>
+                  <p>
+                    These stories were selected and classified
+                    automatically
+                    by <a href="http://aitopics.org/misc/about-newsfinder">NewsFinder</a>,
+                    with an occasional intervention from the editors.
+                    NewsFinder reads over sixty sources each day,
+                    including major newspapers and magazines. The news
+                    can be viewed in
+                    an <a href="http://feeds.feedburner.com/AIInTheNews">RSS
+                    feed</a>,
+                    a <a href="http://aitopics.org/news/monthly">monthly
+                    calendar</a>, or
+                    <a href="http://aitopics.org/news">AI in the
+                      News</a>.
+                  </p>
+		  
+		  <p>Please send feedback by emailing <strong><a href="emailto:aaai13@aaai.org">aaai13@aaai.org</a></strong></p>
 
-              <h2 style="padding:30px 20px 10px 0px; background: url(http://www.aaai.org/AITopics/pmwiki/pub/skins/aaaiblue/backgrounds/backgrounds05.gif) no-repeat left bottom; line-height:10px;">
-                <span style="padding-left: 16px; background: url(http://www.aaai.org/AITopics/pmwiki/pub/skins/aaaiblue/backgrounds/bullet.gif) no-repeat left center; font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif; font-size: 13px; color: #202020;">SUMMARIES</span>
-              </h2>
+		  
+		</td>
+	      </tr>
+	    </table>
+	  </div><!-- /content -->
+	  
 
-              <ul style="font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;	font-size: 11px; line-height: 18px; color: #5E5E5E;">
+	</td>
+	<td></td>
+      </tr>
+    </table><!-- /BODY -->
 
-                <!--CONTENT/BLURBS-->
-
-                #for $id, $n in zip(range(len($articles)), $articles)
-
-                <li style='margin-top:15px; margin-bottom: 15px;' >
-                  #echo ($n.pubdate).strftime("%B %d, %Y")#:&nbsp; <strong><a target='_blank' name = 'anchor$id' style='color: #004466;' href='$n.url' rel='nofollow'>$n.title</a></strong> from $n.source<br/>
-                  $n.image
-                  $n.summary
-                  <br/>
-                  $n.topics &nbsp;&nbsp; $n.link
-                  &nbsp;&nbsp;<a href='#top'>
-                    <img  border='0px' style='margin-bottom:-1px' src='http://www.aaai.org/AITopics/pmwiki/pub/images/up_arrow1.gif'
-                          alt='back to top' title='back to top' />
-                  </a>
-</div>
-</li>
-
-#end for
-<!--END CONTENT/BLURBS-->
-</ul>
-</td>
-</tr>
-</table>
-<br />
-<!-- Footer -->
-
-</TD>
-</TR>
-</tbody>
-</table>
-
+  </body>
+</html>

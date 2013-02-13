@@ -9,7 +9,7 @@
         <crawldate>#echo ($n.crawldate).strftime("%b %d %Y")#</crawldate>
         <pubdate>#echo ($n.pubdate).strftime("%b %d %Y")#</pubdate>
         <pubyear>#echo ($n.pubdate).strftime("%Y")#</pubyear>
-        #if len($n.categories_fixed)>0#<topics>#echo ",".join($n.categories_fixed)#</topics>#end if#
+        #if len($n.categories)>0#<topics>#echo ",".join($n.categories)#</topics>#end if#
         <url>#echo cgi.escape($n.url)#</url>
         <source>$n.source</source>
         <source_id>#echo $n.source_id#</source_id>
