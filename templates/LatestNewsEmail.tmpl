@@ -1,329 +1,51 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
-  <head>
-    <!-- If you delete this meta tag, the ground will open and swallow you. -->
-    <meta name="viewport" content="width=device-width" />
-
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>AI-Alert from AITopics</title>
-
-    <style>
-      /* ------------------------------------- 
-      GLOBAL 
-      ------------------------------------- */
-      * { 
-      margin:0;
-      padding:0;
-      }
-      * {
-      font-family: Arial, Helvetica, sans-serif;
-      }
-
-      html {
-      font-size: 81.3%;
-      }
-
-      img { 
-      max-width: 100%; 
-      border: 0;
-      }
-      .collapse {
-      margin:0;
-      padding:0;
-      }
-      body {
-      -webkit-font-smoothing:antialiased; 
-      -webkit-text-size-adjust:none; 
-      width: 100%!important; 
-      height: 100%;
-      line-height: 1.5;
-      font-size: 1.083em;
-      }
-
-
-      /* ------------------------------------- 
-      ELEMENTS 
-      ------------------------------------- */
-      a { color: navy;}
-
-      .btn {
-      text-decoration:none;
-      color: #FFF;
-      padding:10px 16px;
-      font-weight:bold;
-      margin-right:10px;
-      text-align:center;
-      cursor:pointer;
-      display: inline-block;
-      }
-
-      .btn.source {
-      background-color: #666;
-      }
-
-      .btn.site {
-      background-color: #999;
-      }
-
-      p.callout {
-      padding:15px;
-      background-color:#ECF8FF;
-      margin-bottom: 15px;
-      }
-      .callout a {
-      font-weight:bold;
-      color: #2BA6CB;
-      }
-
-      table.footer {
-      background-color: #ebebeb;      
-      }
-      table.footer td {
-      padding:15px;
-      }
-      .social .soc-btn {
-      padding: 3px 7px;
-      font-size:12px;
-      margin-bottom:10px;
-      text-decoration:none;
-      color: #FFF;font-weight:bold;
-      display:block;
-      text-align:center;
-      }
-      a.fb { background-color: #3B5998!important; }
-      a.home { background-color: #666!important; }
-      a.news { background-color: #999!important; }
-      a.ms { background-color: #000!important; }
-
-      .sidebar .soc-btn { 
-      display:block;
-      width:100%;
-      }
-
-      /* ------------------------------------- 
-      HEADER 
-      ------------------------------------- */
-      .header .column { padding: 15px 0px 30px 0px; }
-
-      /* ------------------------------------- 
-      BODY 
-      ------------------------------------- */
-      table.body-wrap { width: 100%;}
-
-
-      /* ------------------------------------- 
-      FOOTER 
-      ------------------------------------- */
-      table.footer-wrap { width: 100%;	clear:both!important;
-      }
-      .footer-wrap .container td.content  p {
-      border-top: 1px solid rgb(215,215,215);
-      padding-top:15px;
-      }
-      .footer-wrap .container td.content p {
-      font-size:10px;
-      font-weight: bold;
-      
-      }
-
-
-      /* ------------------------------------- 
-      TYPOGRAPHY 
-      ------------------------------------- */
-      h1,h2,h3,h4,h5,h6 {
-      line-height: 1.2;
-      margin-bottom:15px;
-      color:#000;
-      }
-      h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
-      display: block;
-      font-size: 80%;
-      color: #6f6f6f;
-      text-transform: none;
-      font-weight: normal;
-      }
-
-      h1 {
-      font-weight: bold;
-      font-size: 2.5em;
-      font-variant: small-caps;
-      margin-bottom: 0;
-      }
-      h2 {
-      font-size: 1.15em;
-      font-weight: normal;
-      font-style: italic;
-      margin-bottom: 10px;
-      }
-      h3 {
-      font-weight: bold;
-      font-size: 1.45em;
-      }
-
-      #logo {
-      height: 100px;
-      }
-
-      .collapse { margin:0!important;}
-
-      p, ul { 
-      margin-bottom: 10px;
-      line-height:1.5;
-      }
-
-      ul li {
-      margin-left:5px;
-      list-style-position: inside;
-      }
-
-      /* ------------------------------------- 
-      SIDEBAR 
-      ------------------------------------- */
-      ul.sidebar {
-      background:#ebebeb;
-      display:block;
-      list-style-type: none;
-      }
-      ul.sidebar li { display: block; margin:0;}
-      ul.sidebar li a {
-      text-decoration:none;
-      color: #666;
-      padding:10px 16px;
-      /* 	font-weight:bold; */
-      margin-right:10px;
-      /* 	text-align:center; */
-      cursor:pointer;
-      border-bottom: 1px solid #777777;
-      border-top: 1px solid #FFFFFF;
-      display:block;
-      margin:0;
-      }
-      ul.sidebar li a.last { border-bottom-width:0px;}
-      ul.sidebar li a h1,ul.sidebar li a h2,ul.sidebar li a h3,ul.sidebar li a h4,ul.sidebar li a h5,ul.sidebar li a h6,ul.sidebar li a p { margin-bottom:0!important;}
-
-
-
-      /* --------------------------------------------------- 
-      RESPONSIVENESS
-      Nuke it from orbit. It's the only way to be sure. 
-      ------------------------------------------------------ */
-
-      /* Set a max-width, and make it display as block so it will automatically stretch to that width, but will also shrink down on a phone or something */
-      .container {
-      display:block!important;
-      max-width:700px!important;
-      margin:0 auto!important; /* makes it centered */
-      clear:both!important;
-      }
-
-      /* This should also be a block element, so that it will fill 100% of the .container */
-      .content {
-      padding:15px;
-      max-width:700px;
-      margin:0 auto;
-      display:block; 
-      }
-
-      /* Let's make sure tables in the content area are 100% wide */
-      .content table { width: 100%; }
-
-
-      /* Odds and ends */
-      .column {
-      width: 330px;
-      float:left;
-      }
-      .column tr td { padding: 15px; }
-      .column-wrap { 
-      padding:0!important; 
-      margin:0 auto; 
-      max-width:600px!important;
-      }
-      .column table { width:100%;}
-      .social .column {
-      width: 330px;
-      min-width: 279px;
-      float:left;
-      }
-
-      /* Be sure to place a .clear element after each set of columns, just to be safe */
-      .clear { display: block; clear: both; }
-
-      span.date {
-      white-space: nowrap;
-      }
-
-
-      /* ------------------------------------------- 
-      PHONE
-      For clients that support media queries.
-      Nothing fancy. 
-      -------------------------------------------- */
-      @media only screen and (max-width: 600px) {
-
-      .header .column { padding: 10px 0px 10px 0px !important; }
-      
-      a[class="btn"] { display:block!important; margin-bottom:10px!important; background-image:none!important; margin-right:0!important;}
-
-      div[class="column"] { width: auto!important; float:none!important; }
-      
-      table.social div[class="column"] {
-      width:auto!important;
-      }
-
-      }
-    </style>
-
-  </head>
-  
-  <body bgcolor="#FFFFFF" topmargin="0" leftmargin="0" marginheight="0" marginwidth="0">
+<div style="font-family: Arial, sans-serif; margin: 0; padding: 0; width: 100%!important; height: 100%; line-height: 1.5; font-size: 1.083em;">
 
     <!-- BODY -->
-    <table class="body-wrap" bgcolor="">
+    <table style="font-family: Arial, sans-serif; margin: 0; padding: 0; width: 100%;" bgcolor="">
       <tr>
 	<td></td>
-	<td class="container" align="" bgcolor="#FFFFFF">
+	<td style="font-family: Arial, sans-serif; margin: 0; padding: 0; display: block!important; max-width: 700px!important; margin: 0 auto!important; clear: both!important; padding: 0;" align="" bgcolor="#FFFFFF">
 	  
 	  <!-- content -->
-	  <div class="content header">
+	  <div style="font-family: Arial, sans-serif; margin: 0; padding: 0; padding: 15px; max-width: 700px; margin: 0 auto; display: block;">
 
-            <div class="column">
-              <a href="http://aitopics.org">
-                <img src="http://aitopics.org/sites/default/files/aitopics-logo-1-color-org_0.png"/>
+            <div style="font-family: Arial, sans-serif; margin: 0; padding: 0; padding: 15px 0px 15px 0px; width: 330px; float: left; margin: 0;">
+              <a style="font-family: Arial, sans-serif; margin: 0; padding: 0; color: navy;" href="http://aitopics.org">
+                <img style="font-family: Arial, sans-serif; margin: 0; padding: 0; max-width: 100%; border: 0;" src="http://aitopics.org/sites/default/files/aitopics-logo-1-color-org_0.png"/>
               </a>
             </div>
-            <div class="column">
-              <h1>AI-Alert</h1>
-              <h2>Latest Headlines for the week ending <span class="date">$date</span>
+            <div style="font-family: Arial, sans-serif; margin: 0; padding: 0; padding: 15px 0px 15px 0px; width: 330px; float: left; margin: 0;">
+              <h1 style="font-family: Arial, sans-serif; margin: 0; padding: 0; font-weight: bold; font-size: 2.5em; font-variant: small-caps; margin-bottom: 0;">AI-Alert</h1>
+              <h2 style="font-family: Arial, sans-serif; margin: 0; padding: 0; font-size: 1.15em; font-weight: normal; font-style: italic; margin-bottom: 10px;">Latest Headlines for the week ending <span class="date">$date</span>
               </h2>
             </div>
           </div>
 
-          <div style="clear"></div>
+          <div style="font-family: Arial, sans-serif; margin: 0; padding: 0; clear: both;"></div>
 
           #for $n in $articles
 
-	  <div class="content header">
+	  <div style="font-family: Arial, sans-serif; margin: 0; padding: 0; padding: 15px; max-width: 700px; margin: 0 auto; display: block;">
 	    
-	    <table>
+	    <table style="font-family: Arial, sans-serif; margin: 0; padding: 0; width: 100%;">
 	      <tr>
-		<td class="small" width="20%" style="vertical-align: top; padding-right:10px;">
+		<td class="small" width="20%" style="font-family: Arial, sans-serif; margin: 0; padding: 0; vertical-align: top; padding-right:10px;">
                   #if $n.image != ""#
-                  <img src="$n.image" title="$n.title" alt="$n.title"/>
+                  <img style="font-family: Arial, sans-serif; margin: 0; padding: 0; max-width: 100%; border: 0;" src="$n.image" title="$n.title" alt="$n.title"/>
                   #end if#
                 </td>
 		<td>
-		  <h3>$n.title
-                    <small>$n.source, #echo ($n.pubdate).strftime("%b %d %Y")#</small>
+		  <h3 style="font-family: Arial, sans-serif; margin: 0; padding: 0; font-weight: bold; font-size: 1.45em; line-height: 1.2; margin-bottom: 15px; color: #000;">$n.title
+                    <small style="font-family: Arial, sans-serif; margin: 0; padding: 0; display: block; font-size: 80%; color: #6f6f6f; text-transform: none; font-weight: normal;">$n.source, #echo ($n.pubdate).strftime("%b %d %Y")#</small>
                   </h3>
-                  <p>
+                  <p style="font-family: Arial, sans-serif; margin: 0; padding: 0; margin-bottom: 10px; line-height: 1.5;">
                     $n.summary
                   </p>
-                  <p>
+                  <p style="font-family: Arial, sans-serif; margin: 0; padding: 0; margin-bottom: 10px; line-height: 1.5;">
                     $n.topics
                   </p>
-		  <a class="btn source" href="$n.url">Read at $n.source &raquo;</a>
-                  <a class="btn site" href="$n.link">More info at AITopics &raquo;</a>
+		  <a style="white-space: nowrap; font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #666; text-decoration: none; color: #fff; padding: 10px 16px; font-weight: bold; margin-right: 10px; text-align: center; cursor: pointer; display: inline-block;" href="$n.url">Read at $n.source &raquo;</a>
+                  <a style="white-space: nowrap; font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #999; text-decoration: none; color: #fff; padding: 10px 16px; font-weight: bold; margin-right: 10px; text-align: center; cursor: pointer; display: inline-block;" href="$n.link">More info at AITopics &raquo;</a>
 		</td>
 	      </tr>
 	    </table>
@@ -333,27 +55,27 @@
           #end for
 
 	  <!-- content -->
-	  <div class="content">
-	    <table class="footer">
+	  <div style="font-family: Arial, sans-serif; margin: 0; padding: 0; padding: 15px; max-width: 700px; margin: 0 auto; display: block">
+	    <table style="font-family: Arial, sans-serif; margin: 0; padding: 0; width: 100%; background-color: #ebebeb;">
 	      <tr>
-		<td>
-                  <p>
+		<td style="font-family: Arial, sans-serif; margin: 0; padding: 0; padding: 15px;">
+                  <p style="font-family: Arial, sans-serif; margin: 0; padding: 0; margin-bottom: 10px; line-height: 1.5;">
                     These stories were selected and classified
                     automatically
-                    by <a href="http://aitopics.org/misc/about-newsfinder">NewsFinder</a>,
+                    by <a style="font-family: Arial, sans-serif; margin: 0; padding: 0; color: navy;" href="http://aitopics.org/misc/about-newsfinder">NewsFinder</a>,
                     with an occasional intervention from the editors.
                     NewsFinder reads over sixty sources each day,
                     including major newspapers and magazines. The news
                     can be viewed in
-                    an <a href="http://feeds.feedburner.com/AIInTheNews">RSS
+                    an <a style="font-family: Arial, sans-serif; margin: 0; padding: 0; color: navy;" href="http://feeds.feedburner.com/AIInTheNews">RSS
                     feed</a>,
-                    a <a href="http://aitopics.org/news/monthly">monthly
+                    a <a style="font-family: Arial, sans-serif; margin: 0; padding: 0; color: navy;" href="http://aitopics.org/news/monthly">monthly
                     calendar</a>, or
-                    <a href="http://aitopics.org/news">AI in the
+                    <a style="font-family: Arial, sans-serif; margin: 0; padding: 0; color: navy;" href="http://aitopics.org/news">AI in the
                       News</a>.
                   </p>
 		  
-		  <p>Please send feedback by emailing <strong><a href="emailto:aaai13@aaai.org">aaai13@aaai.org</a></strong></p>
+		  <p style="font-family: Arial, sans-serif; margin: 0; padding: 0; margin-bottom: 10px; line-height: 1.5;">Please send feedback by emailing <strong><a style="font-family: Arial, sans-serif; margin: 0; padding: 0; color: navy;" href="emailto:aaai13@aaai.org">aaai13@aaai.org</a></strong></p>
 
 		  
 		</td>
@@ -365,7 +87,6 @@
 	</td>
 	<td></td>
       </tr>
-    </table><!-- /BODY -->
+    </table>
 
-  </body>
-</html>
+</div><!-- /BODY -->
