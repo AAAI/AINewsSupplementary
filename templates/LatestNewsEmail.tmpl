@@ -1,92 +1,95 @@
-<div style="font-family: Arial, sans-serif; margin: 0; padding: 0; width: 100%!important; height: 100%; line-height: 1.5; font-size: 1.083em;">
+<div style="font-family: Arial, sans-serif; margin: 0; padding: 0; width: 100%!important; line-height: 1.5; font-size: 1.083em;">
 
-    <!-- BODY -->
-    <table style="font-family: Arial, sans-serif; margin: 0; padding: 0; width: 100%;" bgcolor="">
-      <tr>
-	<td></td>
-	<td style="font-family: Arial, sans-serif; margin: 0; padding: 0; display: block!important; max-width: 700px!important; margin: 0 auto!important; clear: both!important; padding: 0;" align="" bgcolor="#FFFFFF">
-	  
-	  <!-- content -->
-	  <div style="font-family: Arial, sans-serif; margin: 0; padding: 0; padding: 15px; max-width: 700px; margin: 0 auto; display: block;">
+  <!-- BODY -->
+  <table style="font-family: Arial, sans-serif; margin: 0; padding: 0; width: 100%;" bgcolor="">
+    <tr>
+      <td></td>
+      <td style="font-family: Arial, sans-serif; margin: 0; padding: 0; display: block!important; max-width: 700px!important; margin: 0 auto!important; clear: both!important; padding: 0;" bgcolor="#FFFFFF">
+	
+	<!-- content -->
+	<div style="font-family: Arial, sans-serif; margin: 0; padding: 0; padding: 15px; max-width: 700px; margin: 0 auto; display: block;">
 
-            <div style="font-family: Arial, sans-serif; margin: 0; padding: 0; padding: 15px 0px 15px 0px; width: 330px; float: left; margin: 0;">
-              <a style="font-family: Arial, sans-serif; margin: 0; padding: 0; color: navy;" href="http://aitopics.org">
-                <img style="font-family: Arial, sans-serif; margin: 0; padding: 0; max-width: 100%; border: 0;" src="http://aitopics.org/sites/default/files/aitopics-logo-1-color-org_0.png"/>
-              </a>
-            </div>
-            <div style="font-family: Arial, sans-serif; margin: 0; padding: 0; padding: 15px 0px 15px 0px; width: 330px; float: left; margin: 0;">
-              <h1 style="font-family: Arial, sans-serif; margin: 0; padding: 0; font-weight: bold; font-size: 2.5em; font-variant: small-caps; margin-bottom: 0;">AI-Alert</h1>
-              <h2 style="font-family: Arial, sans-serif; margin: 0; padding: 0; font-size: 1.15em; font-weight: normal; font-style: italic; margin-bottom: 10px;">Latest Headlines for the week ending <span class="date">$date</span>
-              </h2>
-            </div>
+          <div style="font-family: Arial, sans-serif; margin: 0; padding: 0; padding: 15px 0px 15px 0px; width: 330px; float: left; margin: 0;">
+            <a style="font-family: Arial, sans-serif; margin: 0; padding: 0; color: navy;" href="http://aitopics.org">
+              <img style="font-family: Arial, sans-serif; margin: 0; padding: 0; max-width: 100%; border: 0;" src="http://aitopics.org/sites/default/files/aitopics-logo-1-color-org_0.png" alt="AITopics" />
+            </a>
           </div>
+          <div style="font-family: Arial, sans-serif; margin: 0; padding: 0; padding: 15px 0px 15px 0px; width: 330px; float: left; margin: 0;">
+            <h1 style="font-family: Arial, sans-serif; margin: 0; padding: 0; font-weight: bold; font-size: 2.5em; font-variant: small-caps; margin-bottom: 0;">AI-Alert</h1>
+            <h2 style="font-family: Arial, sans-serif; margin: 0; padding: 0; font-size: 1.15em; font-weight: normal; font-style: italic; margin-bottom: 10px;">Latest Headlines for the week ending <span class="date">$date</span>
+            </h2>
+          </div>
+        </div>
 
-          <div style="font-family: Arial, sans-serif; margin: 0; padding: 0; clear: both;"></div>
+        <div style="font-family: Arial, sans-serif; margin: 0; padding: 0; clear: both;"></div>
 
-          #for $n in $articles
+        #for $n in $articles
 
-	  <div style="font-family: Arial, sans-serif; margin: 0; padding: 0; padding: 15px; max-width: 700px; margin: 0 auto; display: block;">
-	    
-	    <table style="font-family: Arial, sans-serif; margin: 0; padding: 0; width: 100%;">
-	      <tr>
-		<td class="small" width="20%" style="font-family: Arial, sans-serif; margin: 0; padding: 0; vertical-align: top; padding-right:10px;">
-                  #if $n.image != ""#
-                  <img style="font-family: Arial, sans-serif; margin: 0; padding: 0; max-width: 100%; border: 0;" src="$n.image" title="$n.title" alt="$n.title"/>
-                  #end if#
-                </td>
-		<td>
-		  <h3 style="font-family: Arial, sans-serif; margin: 0; padding: 0; font-weight: bold; font-size: 1.45em; line-height: 1.2; margin-bottom: 15px; color: #000;">$n.title
-                    <small style="font-family: Arial, sans-serif; margin: 0; padding: 0; display: block; font-size: 80%; color: #6f6f6f; text-transform: none; font-weight: normal;">$n.source, #echo ($n.pubdate).strftime("%b %d %Y")#</small>
-                  </h3>
-                  <p style="font-family: Arial, sans-serif; margin: 0; padding: 0; margin-bottom: 10px; line-height: 1.5;">
-                    $n.summary
-                  </p>
-                  <p style="font-family: Arial, sans-serif; margin: 0; padding: 0; margin-bottom: 10px; line-height: 1.5;">
-                    $n.topics
-                  </p>
-		  <a style="white-space: nowrap; font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #666; text-decoration: none; color: #fff; padding: 10px 16px; font-weight: bold; margin-right: 10px; text-align: center; cursor: pointer; display: inline-block;" href="$n.url">Read at $n.source &raquo;</a>
-                  <a style="white-space: nowrap; font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #999; text-decoration: none; color: #fff; padding: 10px 16px; font-weight: bold; margin-right: 10px; text-align: center; cursor: pointer; display: inline-block;" href="$n.link">More info at AITopics &raquo;</a>
-		</td>
-	      </tr>
-	    </table>
-	    
-	  </div><!-- /content -->
+	<div style="font-family: Arial, sans-serif; margin: 0; padding: 0; padding: 15px; max-width: 700px; margin: 0 auto; display: block;">
 	  
-          #end for
+	  <table style="font-family: Arial, sans-serif; margin: 0; padding: 0; width: 100%;">
+	    <tr>
+	      <td class="small" width="20%" style="font-family: Arial, sans-serif; margin: 0; padding: 0; vertical-align: top; padding-right:10px;">
+                #if $n.image != ""#
+                <img style="font-family: Arial, sans-serif; margin: 0; padding: 0; max-width: 100%; border: 0;" src="$n.image" title="$n.title" alt="$n.title"/>
+                #end if#
+              </td>
+	      <td>
+		<h3 style="font-family: Arial, sans-serif; margin: 0; padding: 0; font-weight: bold; font-size: 1.45em; line-height: 1.2; margin-bottom: 15px; color: #000;">$n.title
+                  <small style="font-family: Arial, sans-serif; margin: 0; padding: 0; display: block; font-size: 80%; color: #6f6f6f; text-transform: none; font-weight: normal;">$n.source, #echo ($n.pubdate).strftime("%b %d %Y")#</small>
+                </h3>
+                <div style="font-family: Arial, sans-serif; margin: 0; padding: 0; margin-bottom: 10px; line-height: 1.5;">
+                  $n.summary
+                </div>
+                <div style="font-family: Arial, sans-serif; margin: 0; padding: 0; margin-bottom: 10px; line-height: 1.5;">
+                  $n.topics
+                </div>
+		<a style="font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #666; text-decoration: none; color: #fff; padding: 10px 16px; font-weight: bold; margin-right: 10px; text-align: center; cursor: pointer; display: inline-block;" href="$n.url">Read at $n.source &gt;</a>
+                <a style="font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #999; text-decoration: none; color: #fff; padding: 10px 16px; font-weight: bold; margin-right: 10px; text-align: center; cursor: pointer; display: inline-block;" href="$n.link">More info at AITopics &gt;</a>
+	      </td>
+	    </tr>
+	  </table>
+	  
+	</div><!-- /content -->
+	
+        #end for
 
-	  <!-- content -->
-	  <div style="font-family: Arial, sans-serif; margin: 0; padding: 0; padding: 15px; max-width: 700px; margin: 0 auto; display: block">
-	    <table style="font-family: Arial, sans-serif; margin: 0; padding: 0; width: 100%; background-color: #ebebeb;">
-	      <tr>
-		<td style="font-family: Arial, sans-serif; margin: 0; padding: 0; padding: 15px;">
-                  <p style="font-family: Arial, sans-serif; margin: 0; padding: 0; margin-bottom: 10px; line-height: 1.5;">
-                    These stories were selected and classified
-                    automatically
-                    by <a style="font-family: Arial, sans-serif; margin: 0; padding: 0; color: navy;" href="http://aitopics.org/misc/about-newsfinder">NewsFinder</a>,
-                    with an occasional intervention from the editors.
-                    NewsFinder reads over sixty sources each day,
-                    including major newspapers and magazines. The news
-                    can be viewed in
-                    an <a style="font-family: Arial, sans-serif; margin: 0; padding: 0; color: navy;" href="http://feeds.feedburner.com/AIInTheNews">RSS
+	<!-- content -->
+	<div style="font-family: Arial, sans-serif; margin: 0; padding: 0; padding: 15px; max-width: 700px; margin: 0 auto; display: block">
+	  <table style="font-family: Arial, sans-serif; margin: 0; padding: 0; width: 100%; background-color: #ebebeb;">
+	    <tr>
+	      <td style="font-family: Arial, sans-serif; margin: 0; padding: 0; padding: 15px;">
+                <p style="font-family: Arial, sans-serif; margin: 0; padding: 0; margin-bottom: 10px; line-height: 1.5;">
+                  These stories were selected and classified
+                  automatically
+                  by <a style="font-family: Arial, sans-serif; margin: 0; padding: 0; color: navy;" href="http://aitopics.org/misc/about-newsfinder">NewsFinder</a>,
+                  with occasional intervention from the editors.
+                  NewsFinder reads over sixty sources each day,
+                  including major newspapers and magazines. The news
+                  can be viewed in
+                  an <a style="font-family: Arial, sans-serif; margin: 0; padding: 0; color: navy;" href="http://feeds.feedburner.com/AIInTheNews">RSS
                     feed</a>,
-                    a <a style="font-family: Arial, sans-serif; margin: 0; padding: 0; color: navy;" href="http://aitopics.org/news/monthly">monthly
+                  a <a style="font-family: Arial, sans-serif; margin: 0; padding: 0; color: navy;" href="http://aitopics.org/news/monthly">monthly
                     calendar</a>, or
-                    <a style="font-family: Arial, sans-serif; margin: 0; padding: 0; color: navy;" href="http://aitopics.org/news">AI in the
-                      News</a>.
-                  </p>
-		  
-		  <p style="font-family: Arial, sans-serif; margin: 0; padding: 0; margin-bottom: 10px; line-height: 1.5;">Please send feedback by emailing <strong><a style="font-family: Arial, sans-serif; margin: 0; padding: 0; color: navy;" href="emailto:aaai13@aaai.org">aaai13@aaai.org</a></strong></p>
+                  <a style="font-family: Arial, sans-serif; margin: 0; padding: 0; color: navy;" href="http://aitopics.org/news">AI in the
+                    News</a>.
+                </p>
+		
+		<p style="font-family: Arial, sans-serif; margin: 0; padding: 0; margin-bottom: 10px; line-height: 1.5;">Please send feedback to <strong><a style="font-family: Arial, sans-serif; margin: 0; padding: 0; color: navy;" href="emailto:aaai13@aaai.org">aaai13@aaai.org</a></strong></p>
 
-		  
-		</td>
-	      </tr>
-	    </table>
-	  </div><!-- /content -->
-	  
+		
+	      </td>
+	    </tr>
+	  </table>
+	</div><!-- /content -->
+	
 
-	</td>
-	<td></td>
-      </tr>
-    </table>
+      </td>
+      <td></td>
+    </tr>
+  </table>
 
 </div><!-- /BODY -->
+
+
+
